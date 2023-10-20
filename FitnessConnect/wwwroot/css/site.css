@@ -1,0 +1,97 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+.signup {
+    background: #39325b;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 15px;
+}
+
+.signup .whitebox {
+    max-width: 400px;
+    margin: 0 auto;
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+}
+
+    .signup .whitebox .logo {
+        padding: 30px 20px 0;
+        text-align: center;
+    }
+
+    .signup .whitebox .innercontent {
+        padding: 30px;
+    }
+
+    .signup .whitebox .title {
+        border-bottom: 1px solid #ddd;
+        padding: 30px 30px 20px 30px;
+        font-weight: 700;
+        font-size: 18px;
+        color: #003333;
+    }
+
+    .signup .whitebox .form-container {
+        padding: 0;
+    }
+
+.form span {
+    color: red;
+}
+
+.signup .whitebox .form-group {
+    margin-bottom: 30px;
+}
+
+.signup .signupfooter {
+    padding: 20px;
+    background: #efefef;
+    border-top: 1px solid #dddddd;
+    border-radius: 0 0 10px 10px;
+}
+
+    .signup .signupfooter:after {
+        content: "";
+        display: block;
+        min-height: 1px;
+        clear: both;
+    }
+
+.LoginPage > .form-control {
+    border-color: #a3aab1;
+    border-width: 2px;
+    border-radius: 18px;
+}
+
+    .LoginPage > .form-control:focus,
+    .LoginPage > .form-control.is-valid:focus {
+        border-color: #04233b;
+    }
+
+    .LoginPage > .form-control.is-valid {
+        border-color: #198754;
+    }
+
+    .LoginPage > .form-control.is-invalid {
+        border-color: #DC3545;
+    }
+
