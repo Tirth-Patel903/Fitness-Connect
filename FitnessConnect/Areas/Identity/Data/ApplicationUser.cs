@@ -13,5 +13,11 @@ public class ApplicationUser : IdentityUser
     public string? LastName { get; set; }
     public DateTime birthdate { get; set; }
     public string? Gender { get; set; }
+    public DateTime CreatedOn { get; set; }
+    public int? CreatedById { get; set; }
+    public DateTime ModifiedOn { get; set; }
+    public int? ModifiedById { get; set; }
+    public bool IsActive { get; set; }
+    public string? ProfileImg { get; set; }
 }
 

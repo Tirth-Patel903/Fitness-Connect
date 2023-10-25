@@ -10700,11 +10700,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\parag\\source\\repos\\FitnessConnect\\FitnessConnect\\FitnessConnect.csproj",
+      "projectUniqueName": "C:\\Users\\parag\\OneDrive\\Documents\\GitHub\\Fitness-Connect\\FitnessConnect\\FitnessConnect.csproj",
       "projectName": "FitnessConnect",
-      "projectPath": "C:\\Users\\parag\\source\\repos\\FitnessConnect\\FitnessConnect\\FitnessConnect.csproj",
+      "projectPath": "C:\\Users\\parag\\OneDrive\\Documents\\GitHub\\Fitness-Connect\\FitnessConnect\\FitnessConnect.csproj",
       "packagesPath": "C:\\Users\\parag\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\parag\\source\\repos\\FitnessConnect\\FitnessConnect\\obj\\",
+      "outputPath": "C:\\Users\\parag\\OneDrive\\Documents\\GitHub\\Fitness-Connect\\FitnessConnect\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\parag\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -11,6 +11,8 @@ public class ApplicationDBContext : IdentityDbContext<ApplicationUser>
         : base(options)
     {
     }
+    public DbSet<Contact> Contact { get; set; }
+    public DbSet<Logger> Logger { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

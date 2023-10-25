@@ -1,0 +1,375 @@
+﻿@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Profile";
+}
+<style>
+    .upload {
+        width: 150px;
+        position: relative;
+        margin: auto;
+    }
+    .upload .round {
+        position: absolute;
+        top: 120px; /* Adjust the top position as desired */
+        right: 20px; /* Adjust the right position as desired */
+        background: #00B4FF;
+        width: 32px;
+        height: 32px;
+        line-height: 33px;
+        text-align: center;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+    .upload .round input[type="file"] {
+        position: absolute;
+        transform: scale(2);
+        opacity: 0;
+    }
+    input[type=file]::-webkit-file-upload-button {
+        cursor: pointer;
+    }
+    .avatar {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background-color: #CD5C5C;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 60px;
+        font-weight: bold;
+        color: white;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12">
+        <ul class="page-breadcrumb breadcrumb">
+            <li>
+                <i class="bi bi-house-door-fill"></i>
+                <a asp-action="Index" asp-controller="Home">Home</a>
+                <i class="bi bi-chevron-right"></i>
+            </li>
+            <li>
+                <a asp-action="Index" asp-controller="Profile">Profile</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3 class="page-title">Profile</h3>
+    </div>
+</div>
+
+<div class="form mx-lg-5 mx-md-4 mx-sm-2">
+    <div class="adduserform">
+        <div class="title">
+            <h3>My Account</h3>
+            <p>
+                Manage your profile, update or change password, logo update or change your profile in
+                just few clicks.
+            </p>
+        </div>
+        <div class="form-container">
+            <div class="row">
+                <div class="col">
+                    <div class="dropdown-center">
+                        <div>
+                            @if (ViewBag.User.ProfileImg != null)
+                            {
+                                <div class="upload">
+                                    <img src="/profileimg/@ViewBag.User.ProfileImg" alt="User Avatar" class="img-fluid d-flex mx-auto" style="width: 150px; height: 150px; border-radius: 50%;">
+                                    <div class="round">
+                                        <i class="bi bi-camera" id="profile" style="color: #fff;cursor:pointer"></i>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="upload">
+                                    <div class="avatar d-flex mx-auto">@ViewBag.Avatar</div>
+                                    <div class="round">
+                                        <i class="bi bi-camera" id="profile" style="color: #fff;cursor:pointer"></i>
+                                    </div>
+                                </div>
+                            }
+                            <ul class="dropdown-menu border border-0">
+                                <div class="d-flex row gap-2">
+                                    @* <a class="col btn btn-sm btn-outline-warning" href="#">Change</a>
+                                    <a class="col btn btn-sm btn-outline-success" href="#">View</a>*@
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row ">
+                        <div class="col-md-6">
+                            <div class="form-group border-bottom">
+                                <label class="control-label mb-1">First Name </label>
+                                <br />
+                                <label class="control-label mb-1">@ViewBag.User.FirstName </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group border-bottom">
+                                <label class="control-label mb-1">Last Name </label>
+                                <br />
+                                <label class="control-label mb-1">@ViewBag.User.LastName </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group border-bottom">
+                                <label class="control-label mb-1">Email </label>
+                                <br />
+                                <label class="control-label mb-1">@ViewBag.User.Email </label>
+                            </div>
+                        </div>
+                        @if (ViewBag.office != null)
+                        {
+                            <div class="col-md-6">
+                                <div class="form-group border-bottom">
+                                    <label class="control-label mb-1">Office Address </label>
+                                    <br />
+                                    <label class="control-label mb-1">@ViewBag.office.Country,@ViewBag.office.State,@ViewBag.office.PhysicalAddress</label>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                @* <div class="d-flex p-2 justify-content-end">
+                <input type="button" value="Update Profile" class="btn btn-success">
+                </div>*@
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form mt-3 mx-lg-5 mx-md-4 mx-sm-2">
+    <div class="adduserform">
+        <div class="title">
+            <h3>Change Password</h3>
+            <p>
+                Password must be atleast 8 characters long, 1 uppercase letter, 1 lowercase letter,
+                and 1 number.
+            </p>
+        </div>
+        <div class="form-container w-50 mx-auto">
+            <form id="changePassword">
+                <div class="w-100">
+                    <div class="d-flex justify-content-center">
+                        <span id="error-msg" class="text-center"></span>
+                    </div>
+                </div>
+                <div id="checkPass">
+                    <div class="row">
+                        <div class="form-group">
+                            <label class="control-label">Current Password <span>*</span></label>
+                            <input type="text" value="" autocomplete="off" name="CurrentPassword" id="CurrentPassword" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div id="changePass">
+                    <div class="row">
+                        <div class="form-group">
+                            <label class="control-label">New Password <span>*</span></label>
+                            <input type="password" value="" name="NewPassword" id="NewPassword" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label class="control-label">Confirm Password <span>*</span></label>
+                            <input type="password" value="" name="ConfirmPassword" id="ConfirmPassword" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        @*<input type="submit" value="Change" class="btn btn-success" />*@
+                        <button type="submit" class="btn btn-success">Change</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal" tabindex="-1" id="addPerson">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Backup Person</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label">Person</label>
+                            <select class="form-select">
+                                <option>Harry Dave</option>
+                                <option>Noah James</option>
+                                <option>Simon Harryson</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label">Email</label>
+                            <input type="text" value="happyharry@gmail.com" name=""
+                                   class="form-control" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                    Close
+                </button>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">
+                    Save
+                    changes
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Button trigger modal >
+
+<!-- Modal -->
+<div class="modal fade" id="profileModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <form id="profileForm">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Change Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Select Profile Image</label>
+                        <input type="file" id="myfile" name="myfile" class="form-control" accept=".jpg, .png">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" id="profile-btn" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $('.page-sidebar-menu > #sidenav-dashboard').addClass('start active');
+        $(document).ready(function () {
+            $("#changePassword").validate({
+                errorClass: 'error',
+                rules: {
+                    CurrentPassword: {
+                        required: true
+                    },
+                    NewPassword: {
+                        required: true,
+                        strongPassword: true
+                    },
+                    ConfirmPassword: {
+                        required: true,
+                        equalTo: "#NewPassword"
+                    }
+                },
+                messages: {
+                    CurrentPassword: {
+                        required: "Current Password is Required"
+                    },
+                    NewPassword: {
+                        required: "Password is Required",
+                        strongPassword: "Password must be at least 8 letters with Uppercase, Lowercase, Symbol and Digit"
+                    },
+                    ConfirmPassword: {
+                        required: "Confirm your Password",
+                        equalTo: 'Password and Confirm Password not Matching'
+                    }
+                },
+                highlight: function (element) {
+                    $(element).addClass("is-invalid").removeClass("is-valid");
+                },
+                unhighlight: function (element) {
+                    $(element).addClass("is-valid").removeClass("is-invalid");
+                },
+                submitHandler: function (form) {
+                    var oldpwd = $("#CurrentPassword").val();
+                    var npwd = $("#NewPassword").val();
+                    var cpwd = $("#ConfirmPassword").val();
+                    var data = oldpwd + "," + npwd + "," + cpwd;
+                    $.ajax({
+                        type: "post",
+                        url: "../Profile/changePassword",
+                        data: { data: data },
+                        success: function (response) {
+                            if (response === "Success") {
+                                $("#error-msg").removeClass("text-danger").addClass("text-success").text("Password changed successfully");
+                            } else {
+                                $("#error-msg").removeClass("text-success").addClass("text-danger").text(response);
+                            }
+                            $("#changePassword")[0].reset();
+                            $("#CurrentPassword, #NewPassword, #ConfirmPassword").removeClass("is-valid is-invalid");
+                        },
+                        error: function (xhr, status, error) {
+                            $("#error-msg").removeClass("text-success").addClass("text-danger").text("An error occurred while changing the password.");
+                            $("#changePassword")[0].reset();
+                        }
+                    });
+                }
+            });
+            $.validator.addMethod("strongPassword", function (value, element) {
+                return /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@@$!%*?&])[A-Za-z\d@@$!%*?&]{8,}$/.test(value);
+            }, "Please choose a stronger password.");
+            $("#profile").click(function () {
+                $("#profileModel").modal("show");
+            });
+            $("#profileForm").validate({
+                errorClass: 'error',
+                rules: {
+                    myfile: {
+                        required: true,
+                        fileSize: true
+                    }
+                },
+                highlight: function (element) {
+                    $(element).addClass("is-invalid").removeClass("is-valid");
+                },
+                unhighlight: function (element) {
+                    $(element).removeClass("is-invalid").addClass("is-valid");
+                },
+                submitHandler: function (form) {
+                    var fileInput = $('#myfile')[0].files[0];
+                    var formData = new FormData();
+                    formData.append('myfile', fileInput);
+                    $.ajax({
+                        url: "../Profile/changeProfile",
+                        type: 'POST',
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        success: function (response) {
+                            window.location.reload();
+                        },
+                    });
+                }
+            });
+            //Additional Method Validate
+            $.validator.addMethod('fileSize', function (value, element, param) {
+                return this.optional(element) || (element.files[0].size <= param * 5000000);
+            }, 'Profile size must be less than 5 MB');
+
+            function CleanChanPassowdField()
+            {
+                $("#CurrentPassword").val("");
+                $("#NewPassword").val("");
+                $("#ConfirmPassword").val("");
+            }
+        });
+    </script>
+    }
