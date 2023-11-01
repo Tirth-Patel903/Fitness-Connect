@@ -11,12 +11,26 @@ public class ApplicationDBContext : IdentityDbContext<ApplicationUser>
         : base(options)
     {
     }
+    public DbSet<ApplicationUser> Users { get; set; }
+    public DbSet<MessageModel> Messages { get; set; }
     public DbSet<Contact> Contact { get; set; }
     public DbSet<Logger> Logger { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.Entity<ApplicationUser>();
+        builder.Entity<MessageModel>()
+           .ToTable("Messages")
+           .Property(x => x.Id)
+           .ValueGeneratedOnAdd();
+        builder.Entity<Contact>()
+           .ToTable("Contact")
+           .Property(x => x.Id)
+           .ValueGeneratedOnAdd();
+        builder.Entity<Logger>()
+           .ToTable("Logger")
+           .Property(x => x.Id)
+           .ValueGeneratedOnAdd();
         base.OnModelCreating(builder);
         // Customize the ASP.NET Identity model and override the defaults if needed.
         // For example, you can rename the ASP.NET Identity table names and more.

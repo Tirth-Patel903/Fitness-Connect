@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FitnessConnect.Migrations
 {
-    public partial class initialmigration : Migration
+    public partial class firstmigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -28,6 +28,16 @@ namespace FitnessConnect.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    birthdate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Gender = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedById = table.Column<int>(type: "int", nullable: true),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedById = table.Column<int>(type: "int", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
+                    ProfileImg = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -46,6 +56,61 @@ namespace FitnessConnect.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Contact",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Message = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Contact", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Logger",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ControllerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MethodName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Message = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedById = table.Column<int>(type: "int", nullable: true),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedById = table.Column<int>(type: "int", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Logger", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Messages",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    RecieverId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SenderId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Attach = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Message = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedById = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ModifiedById = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Messages", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -210,6 +275,15 @@ namespace FitnessConnect.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Contact");
+
+            migrationBuilder.DropTable(
+                name: "Logger");
+
+            migrationBuilder.DropTable(
+                name: "Messages");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

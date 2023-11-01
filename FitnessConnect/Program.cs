@@ -13,9 +13,18 @@ builder.Services.AddDbContext<ApplicationDBContext>(options =>
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDBContext>();
 
+builder.Services.AddSignalR(options =>
+{
+    options.EnableDetailedErrors = true;
+    options.ClientTimeoutInterval = TimeSpan.FromSeconds(30); // Adjust as needed
+    options.KeepAliveInterval = TimeSpan.FromSeconds(10);
+});
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ICommonRepository, CommonRepository>();
+builder.Services.AddScoped<IUsersRepository, UsersRepository>();
+builder.Services.AddScoped<IChatboxRepository, ChatboxRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -33,7 +42,11 @@ app.UseRouting();
 app.UseAuthentication();;
 
 app.UseAuthorization();
-
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+    endpoints.MapHub<ChathubRepository>("/chathub");
+});
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

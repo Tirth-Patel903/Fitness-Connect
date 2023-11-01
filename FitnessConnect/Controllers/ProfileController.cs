@@ -24,7 +24,7 @@ namespace FitnessConnect.Controllers
             {
                 var UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
                 var user = await _userManager.FindByIdAsync(UserId);
-                var avatar = user.FirstName[0] + "" + user.LastName[0];
+                var avatar = user.FirstName.Substring(0, 1) + "" + user.LastName.Substring(0, 1); ;
                 ViewBag.User = user;
                 ViewBag.Avatar = avatar;
                 return View();

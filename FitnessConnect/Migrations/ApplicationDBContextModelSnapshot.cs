@@ -139,7 +139,7 @@ namespace FitnessConnect.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Contact");
+                    b.ToTable("Contact", (string)null);
                 });
 
             modelBuilder.Entity("FitnessConnect.Areas.Identity.Data.Logger", b =>
@@ -179,7 +179,45 @@ namespace FitnessConnect.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Logger");
+                    b.ToTable("Logger", (string)null);
+                });
+
+            modelBuilder.Entity("FitnessConnect.Areas.Identity.Data.MessageModel", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Attach")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CreatedById")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Message")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ModifiedById")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("RecieverId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SenderId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Messages", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
