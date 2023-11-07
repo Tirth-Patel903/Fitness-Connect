@@ -8,26 +8,30 @@
         position: relative;
         margin: auto;
     }
-    .upload .round {
-        position: absolute;
-        top: 120px; /* Adjust the top position as desired */
-        right: 20px; /* Adjust the right position as desired */
-        background: #00B4FF;
-        width: 32px;
-        height: 32px;
-        line-height: 33px;
-        text-align: center;
-        border-radius: 50%;
-        overflow: hidden;
-    }
-    .upload .round input[type="file"] {
-        position: absolute;
-        transform: scale(2);
-        opacity: 0;
-    }
+
+        .upload .round {
+            position: absolute;
+            top: 120px; /* Adjust the top position as desired */
+            right: 20px; /* Adjust the right position as desired */
+            background: #00B4FF;
+            width: 32px;
+            height: 32px;
+            line-height: 33px;
+            text-align: center;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+            .upload .round input[type="file"] {
+                position: absolute;
+                transform: scale(2);
+                opacity: 0;
+            }
+
     input[type=file]::-webkit-file-upload-button {
         cursor: pointer;
     }
+
     .avatar {
         width: 150px;
         height: 150px;
@@ -41,29 +45,12 @@
         color: white;
     }
 </style>
-<div class="row">
-    <div class="col-md-12">
-        <ul class="page-breadcrumb breadcrumb">
-            <li>
-                <i class="bi bi-house-door-fill"></i>
-                <a asp-action="Index" asp-controller="Home">Home</a>
-                <i class="bi bi-chevron-right"></i>
-            </li>
-            <li>
-                <a asp-action="Index" asp-controller="Profile">Profile</a>
-            </li>
-        </ul>
-    </div>
-</div>
+<h3>Profile</h3>
+<hr class="border border-dark border-2 opacity-75" />
 
-<div class="row">
-    <div class="col-md-12">
-        <h3 class="page-title">Profile</h3>
-    </div>
-</div>
 
 <div class="form mx-lg-5 mx-md-4 mx-sm-2">
-    <div class="adduserform">
+    <div class="card">
         <div class="title">
             <h3>My Account</h3>
             <p>
@@ -71,7 +58,7 @@
                 just few clicks.
             </p>
         </div>
-        <div class="form-container">
+        <div class="card-body">
             <div class="row">
                 <div class="col">
                     <div class="dropdown-center">
@@ -147,8 +134,9 @@
         </div>
     </div>
 </div>
-<div class="form mt-3 mx-lg-5 mx-md-4 mx-sm-2">
-    <div class="adduserform">
+
+<div class="form my-3 mx-lg-5 mx-md-4 mx-sm-2">
+    <div class="card">
         <div class="title">
             <h3>Change Password</h3>
             <p>
@@ -156,38 +144,28 @@
                 and 1 number.
             </p>
         </div>
-        <div class="form-container w-50 mx-auto">
+        <div class="w-50 mx-auto my-5">
             <form id="changePassword">
                 <div class="w-100">
                     <div class="d-flex justify-content-center">
                         <span id="error-msg" class="text-center"></span>
                     </div>
                 </div>
-                <div id="checkPass">
-                    <div class="row">
-                        <div class="form-group">
-                            <label class="control-label">Current Password <span>*</span></label>
-                            <input type="text" value="" autocomplete="off" name="CurrentPassword" id="CurrentPassword" class="form-control" />
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <label class="control-label">Current Password <span>*</span></label>
+                    <input type="text" value="" autocomplete="off" name="CurrentPassword" id="CurrentPassword" class="form-control" />
                 </div>
-                <div id="changePass">
-                    <div class="row">
-                        <div class="form-group">
-                            <label class="control-label">New Password <span>*</span></label>
-                            <input type="password" value="" name="NewPassword" id="NewPassword" class="form-control" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group">
-                            <label class="control-label">Confirm Password <span>*</span></label>
-                            <input type="password" value="" name="ConfirmPassword" id="ConfirmPassword" class="form-control" />
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-end">
-                        @*<input type="submit" value="Change" class="btn btn-success" />*@
-                        <button type="submit" class="btn btn-success">Change</button>
-                    </div>
+                <div class="form-group">
+                    <label class="control-label">New Password <span>*</span></label>
+                    <input type="password" value="" name="NewPassword" id="NewPassword" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Confirm Password <span>*</span></label>
+                    <input type="password" value="" name="ConfirmPassword" id="ConfirmPassword" class="form-control" />
+                </div>
+                <div class="d-flex justify-content-end">
+                    @*<input type="submit" value="Change" class="btn btn-success" />*@
+                    <button type="submit" class="btn btn-secondary">Change</button>
                 </div>
             </form>
         </div>
@@ -252,8 +230,8 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" id="profile-btn" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" id="profile-btn" class="btn btn-secondary">Save</button>
                 </div>
             </form>
         </div>
@@ -364,8 +342,7 @@
                 return this.optional(element) || (element.files[0].size <= param * 5000000);
             }, 'Profile size must be less than 5 MB');
 
-            function CleanChanPassowdField()
-            {
+            function CleanChanPassowdField() {
                 $("#CurrentPassword").val("");
                 $("#NewPassword").val("");
                 $("#ConfirmPassword").val("");

@@ -2,75 +2,140 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    
-<!-- Hero Section -->
-<section class="hero-section text-center">
-    <div class="container">
-        <h1 class="display-4">Welcome to Fitness Connect</h1>
-        <p class="lead">Connect with fitness enthusiasts, track your progress, and achieve your fitness goals!</p>
-        <a href="#" class="btn btn-primary btn-lg">Get Started</a>
-    </div>
-</section>
-
+<h3>Workout Dashboard</h3>
+<hr class="border border-dark border-2 opacity-75" />
 <div class="container mt-5">
-    <h1>Workout Dashboard</h1>
-
-    <!-- Current Workout Program Chart -->
-    <div class="row mt-4">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    Current Workout Program
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card card-body">
+                <div class="form-group my-3">
+                    <label for="muscleCategory">Muscle Category:</label>
+                    <select id="muscleCategory" class="form-control">
+                        <option value="abdominals">Abdominals</option>
+                        <option value="abductors">Abductors</option>
+                        <option value="adductors">Adductors</option>
+                        <option value="biceps">Biceps</option>
+                        <option value="calves">Calves</option>
+                        <option value="chest">Chest</option>
+                        <option value="forearms">Forearms</option>
+                        <option value="glutes">Glutes</option>
+                        <option value="hamstrings">Hamstrings</option>
+                        <option value="lats">Lats</option>
+                        <option value="lower_back">Lower Back</option>
+                        <option value="middle_back">Middle Back</option>
+                        <option value="neck">Neck</option>
+                        <option value="quadriceps">Quadriceps</option>
+                        <option value="traps">Traps</option>
+                        <option value="triceps">Triceps</option>
+                    </select>
                 </div>
-                <div class="card-body">
-                    <canvas id="currentWorkoutChart"></canvas>
+                <div class="form-group my-3">
+                    <label for="exerciseType">Exercise Type:</label>
+                    <select id="exerciseType" class="form-control">
+                        <option value="cardio">Cardio</option>
+                        <option value="olympic_weightlifting">Olympic Weightlifting</option>
+                        <option value="plyometrics">Plyometrics</option>
+                        <option value="powerlifting">Powerlifting</option>
+                        <option value="strength">Strength</option>
+                        <option value="stretching">Stretching</option>
+                        <option value="strongman">Strongman</option>
+                    </select>
                 </div>
+                <button type="submit" onclick="fetchExercises" class="btn btn-secondary">Fetch Exercises</button>
             </div>
-        </div>
-    </div>
 
-    <!-- Upcoming Workout Program -->
-    <div class="row mt-4">
-        <div class="col-md-6">
-            <div class="card">
+            <!-- Upcoming Workout Program -->
+            <div class="card mt-2">
                 <div class="card-header">
                     Upcoming Workout Program
                 </div>
-                <div class="card-body">
+                <div class="card-body" style=" height: 150px">
                     <!-- Add content for upcoming workout program -->
                 </div>
             </div>
+
+        </div>
+
+        <div class="col-md-8">
+            <!-- Current Workout Program Chart -->
+            <div class="card h-100">
+                <div class="card-header">
+                    Current Workout Program
+                </div>
+                <div class="card-body py-0 overflow-y-auto" id="currentWorkoutChart" style="height:300px;">
+                </div>
+            </div>
         </div>
     </div>
+    <!-- Features Section -->
+    <section class="features-section mt-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="feature-box text-center">
+                        <i class="bi bi-person"></i>
+                        <h3>User Profiles</h3>
+                        <p>Create your personalized fitness profile and share your achievements with the community.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="feature-box text-center">
+                        <i class="bi bi-heart"></i>
+                        <h3>Track Progress</h3>
+                        <p>Track your fitness journey with our easy-to-use progress tracking tools.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="feature-box text-center">
+                        <i class="bi bi-chat"></i>
+                        <h3>Community Chat</h3>
+                        <p>Connect with other fitness enthusiasts, share tips, and motivate each other.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </div>
-<!-- Features Section -->
-<section class="features-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="feature-box text-center">
-                    <i class="bi bi-person"></i>
-                    <h3>User Profiles</h3>
-                    <p>Create your personalized fitness profile and share your achievements with the community.</p>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="feature-box text-center">
-                    <i class="bi bi-heart"></i>
-                    <h3>Track Progress</h3>
-                    <p>Track your fitness journey with our easy-to-use progress tracking tools.</p>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="feature-box text-center">
-                    <i class="bi bi-chat"></i>
-                    <h3>Community Chat</h3>
-                    <p>Connect with other fitness enthusiasts, share tips, and motivate each other.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        const apiUrl = 'https://api.api-ninjas.com/v1/exercises?muscle=biceps';
+        const exercisesList = $('#currentWorkoutChart');
+        function fetchExercises(selectedCategory) {
+            var muscle = selectedCategory;
+            exercisesList.empty();
+            $.ajax({
+                method: 'GET',
+                url: 'https://api.api-ninjas.com/v1/exercises?muscle=' + muscle,
+                headers: { 'X-Api-Key': 'NvWEzJtCpB1Onls444EfBQ==osiCSRAraiymbgpa' },
+                contentType: 'application/json',
+                success: function (result) {
+                    console.log(result);
+                    result.forEach(function (exercise) {
+                        var exerciseItem = $("<div>").addClass("exercise-item");
+                        exerciseItem.append("<div class='card border-secondary my-2'><div class='card-body row'><div class='card-title text-danger'><h3>" + exercise.name + "</h3><hr class='m-0 border-secondary'/></div><div class='col-md-8'><p class='read-more-text m-0'>" + exercise.instructions + "</p><a class='read-more'>Read more</a></div><div class='col-md-4'><ul><li class='list-group-item'><strong>Difficulty:</strong> " + exercise.difficulty + "</p></li><li class='list-group-item'><strong>Type:</strong> " + exercise.type + "</p></li><li class='list-group-item'><strong>Equipment:</strong> " + exercise.equipment + "</p></li></ul></div></div></div></div>");
+                        exercisesList.append(exerciseItem);
+                    });
+
+                    const readMoreButtons = document.querySelectorAll('.read-more');
+                    readMoreButtons.forEach(button => {
+                        button.addEventListener('click', function () {
+                            const text = this.previousElementSibling;
+                            text.classList.toggle('expanded');
+                            this.innerText = (text.classList.contains('expanded')) ? 'Read less' : 'Read more';
+                        });
+                    });
+                },
+                error: function ajaxError(jqXHR) {
+                    console.error('Error: ', jqXHR.responseText);
+                }
+            });
+        }
+        $('#muscleCategory').change(function () {
+            const selectedCategory = $(this).val();
+            // Perform actions based on the selected category, e.g., fetch exercises
+            fetchExercises(selectedCategory);
+        });
+    });
+</script>

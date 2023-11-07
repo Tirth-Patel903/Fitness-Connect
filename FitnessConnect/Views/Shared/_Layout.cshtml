@@ -9,11 +9,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-signin-client_id" content="59741405918-6nbbn54sc0900boe5aicuq29s78q0cd2.apps.googleusercontent.com">
     <title>@ViewData["Title"] - FitnessConnect</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/FitnessConnect.styles.css" asp-append-version="true" />
-     <link href="~/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="~/assets/plugins/bootstrap_Icons_1.10.3/bootstrap-icons.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet" />
@@ -28,14 +29,17 @@
             background: #69a716;
             border-color: #69a716;
         }
+
             .btn-success:focus,
             .btn-success:hover {
                 background: #4c7a10;
                 border-color: #4c7a10;
             }
-            .page-sidebar-wrapper{
-                margin-top:4.5rem;
-            }
+
+        .page-sidebar-wrapper {
+            margin-top: 4.5rem;
+        }
+
         .btn-outline-success {
             border-color: #69a716;
         }
@@ -44,24 +48,32 @@
             .btn-outline-success:hover {
                 border-color: #4c7a10;
             }
-        .margin62{margin-left:62rem}
+
+        .margin62 {
+            margin-left: 62rem
+        }
+
         .form-check-input {
             border-width: 2px;
             border-color: #a3aab1;
         }
-        .form-check-input:checked {
-            background-color: #69a716;
-            border-color: #69a716;
-        }
+
+            .form-check-input:checked {
+                background-color: #69a716;
+                border-color: #69a716;
+            }
+
         .switch {
             display: inline-block;
             height: 48px;
             position: relative;
             width: 60px;
         }
-        .switch input {
-            display: none;
-        }
+
+            .switch input {
+                display: none;
+            }
+
         .slider {
             background-color: #ccc;
             bottom: 0;
@@ -72,31 +84,38 @@
             top: 0;
             transition: .4s;
         }
-        .slider:before {
-            background-color: #fff;
-            bottom: 4px;
-            content: "";
-            height: 16px;
-            left: 4px;
-            position: absolute;
-            transition: .4s;
-            width: 16px;
-        }
+
+            .slider:before {
+                background-color: #fff;
+                bottom: 4px;
+                content: "";
+                height: 16px;
+                left: 4px;
+                position: absolute;
+                transition: .4s;
+                width: 16px;
+            }
+
         input:checked + .slider {
             background-color: #69a716;
         }
-        input:checked + .slider:before {
-            transform: translateX(26px);
-        }
+
+            input:checked + .slider:before {
+                transform: translateX(26px);
+            }
+
         .slider.round {
             border-radius: 34px;
         }
-        .slider.round:before {
-            border-radius: 50%;
-        }
+
+            .slider.round:before {
+                border-radius: 50%;
+            }
+
         label.error {
             color: #DC3545;
         }
+
         .footer {
             position: fixed;
             left: 0;
@@ -104,10 +123,13 @@
             width: 100%;
             background-color: #f5f5f5;
             padding: 10px 0;
+            border-top: 2px solid #6c757d;
         }
+
         .footer-inner {
             text-align: center;
         }
+
         .avatarlogo {
             width: 45px;
             height: 45px;
@@ -121,12 +143,14 @@
             color: white;
             border: none;
         }
+
         ul.page-sidebar-menu li > ul.sub-menu > li > a:hover {
             background-color: #69a716 !important;
             border-color: #69a716 !important;
             border-radius: 5px;
             color: white !important;
         }
+
         .sub-menu li a:hover .title {
             color: white !important;
         }
@@ -161,7 +185,7 @@
                         @if (@user?.ProfileImg != null)
                         {
                             <button class="proImgNav border-0 mt-1" type="button" data-bs-toggle="dropdown" aria-expanded="false"
-                                style="background-image: url('/ProfileImg/@user?.ProfileImg');width:35px; height:35px;"></button>
+                                    style="background-image: url('/ProfileImg/@user?.ProfileImg');width:35px; height:35px;"></button>
                         }
                         else
                         {
@@ -187,7 +211,7 @@
         <!-- END TOP NAVIGATION BAR -->
     </div>
 
-     <!-- END HEADER -->
+    <!-- END HEADER -->
     <div class="clearfix">
     </div>
     <!-- BEGIN CONTAINER -->
@@ -216,7 +240,7 @@
                                 @if (@user?.ProfileImg != null)
                                 {
                                     <button class="proImgNav" type="button" data-bs-toggle="dropdown" aria-expanded="false"
-                                        style="background-image: url('/ProfileImg/@user?.ProfileImg');width:45px; height:45px;margin-right:15%"></button>
+                                            style="background-image: url('/ProfileImg/@user?.ProfileImg');width:45px; height:45px;margin-right:15%"></button>
                                 }
                                 else
                                 {
@@ -275,11 +299,11 @@
 
     <div class="footer">
         <div class="footer-inner">
-            Copyright © 2023 
+            Copyright © 2023
         </div>
     </div>
 
-   
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
@@ -290,9 +314,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
     <script src="~/assets/scripts/app.js" type="text/javascript"></script>
-   
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

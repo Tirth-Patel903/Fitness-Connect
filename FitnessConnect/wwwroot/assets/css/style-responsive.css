@@ -128,7 +128,7 @@ From Medium Devices Up To Larger Devices
         margin-left: 215px;
         margin-top: 0px;
         min-height: calc(100vh - 105px);
-        padding: 25px 25px 20px 25px;
+        padding: 25px 25px 90px 25px;
         border-left: 1px solid #ddd;
     }
 
@@ -535,7 +535,7 @@ Up To Medium Devices
 	Page container
 	***/
     .page-container {
-        margin: 0 !important;
+        margin-bottom: 0 !important;
         padding: 0 !important;
     }
 
@@ -640,6 +640,10 @@ From Small Devices Up To Medium Devices
         border-right: 15px solid transparent;
     }
 
+    .page-content {
+        padding: 20px 20px 90px 20px !important
+    }
+
     /***
 	Boxed Layout
 	***/
@@ -716,7 +720,7 @@ Extra Small Devices Only
 	Page content
 	***/
     .page-content {
-        padding: 95px 10px 10px 10px !important;
+        padding: 35px 10px 90px 10px !important;
         overflow: hidden;
         border-radius: 0 !important;
     }

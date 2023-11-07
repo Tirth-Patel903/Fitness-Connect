@@ -12,17 +12,19 @@
 </head>
 <div class="signup">
     <div class="whitebox">
-        <div class="d-flex justify-content-center mt-5">
+        <div class="d-flex justify-content-center mt-5 row">
+            <div class="col"><hr class="border border-secondary border-5 opacity-75" /></div>
             <img src="/ftc_logo.png"
-                 class="w-50 mx-auto" />
+                 class="w-50 mx-auto col" />
+            <div class="col"><hr class="border border-secondary border-5 opacity-75" /></div>
         </div>
         <h4 class="text-center mt-3">Sign Up</h4>
         <div class="innercontent">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-                 <div class="form-container">
+            <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                <div class="form-container">
 
-                     <div class="row">
+                    <div class="row">
                         <div class="col-md-6">
                             <div class="form-group LoginPage">
                                 <input asp-for="Input.FirstName" class="form-control" placeholder="First Name" autocomplete="firstname" aria-required="true" />
@@ -64,10 +66,12 @@
                             </div>
                         </div>
                     </div>
-                <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+                    <div class="d-flex row mb-3">
+                        <button id="registerSubmit" style="background-color: #04233b;" class="btn text-light w-50 mx-auto">Register</button>
+                    </div>
                 </div>
             </form>
-     </div>
+        </div>
     </div>
 </div>
 
