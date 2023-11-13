@@ -3,15 +3,23 @@ using Microsoft.EntityFrameworkCore;
 using FitnessConnect.Areas.Identity.Data;
 using FitnessConnect.Interfaces;
 using FitnessConnect.Services;
+using FitnessConnect.Service.Interface;
+using FitnessConnect.Service.Repository;
+using FitnessConnect.Data.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("ApplicationDBContextConnection") ?? throw new InvalidOperationException("Connection string 'ApplicationDBContextConnection' not found.");
 
 builder.Services.AddDbContext<ApplicationDBContext>(options =>
     options.UseSqlServer(connectionString));
-
-builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDBContext>();
+builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = true;
+}).AddRoles<ApplicationRole>()
+        .AddEntityFrameworkStores<ApplicationDBContext>()
+        .AddDefaultTokenProviders();
+//builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+//    .AddEntityFrameworkStores<ApplicationDBContext>();
 
 builder.Services.AddSignalR(options =>
 {
@@ -25,6 +33,10 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ICommonRepository, CommonRepository>();
 builder.Services.AddScoped<IUsersRepository, UsersRepository>();
 builder.Services.AddScoped<IChatboxRepository, ChatboxRepository>();
+builder.Services.AddScoped<IUserRole, UserRoleRepository>();
+builder.Services.AddScoped<ILoggerService, LoggerRepository>();
+builder.Services.AddScoped<IPermissionRepository, PermissionRepository>();
+builder.Services.AddScoped<IRolePermission, RolePermissionRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

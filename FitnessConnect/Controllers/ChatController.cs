@@ -24,7 +24,7 @@ namespace FitnessConnect.Controllers
         public async Task<IActionResult> Index()
         {
             string currentUserName = User.Identity.Name;
-            IdentityUser currentUser = await _userManager.FindByNameAsync(currentUserName);
+            ApplicationUser currentUser = await _userManager.FindByNameAsync(currentUserName);
 
             // Now you can use currentUser to access user properties
             string userEmail = currentUser.Email;

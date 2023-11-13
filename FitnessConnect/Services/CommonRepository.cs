@@ -29,7 +29,7 @@ namespace FitnessConnect.Services
         }
         public void AddLogger(String controllerName, String methodName, String message)
         {
-            Logger logger = new Logger();
+            LoggerModel logger = new LoggerModel();
             logger.ControllerName = controllerName;
             logger.MethodName = methodName;
             logger.Message = message;

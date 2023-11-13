@@ -502,3 +502,4 @@ C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Debu
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Debug\net6.0\FitnessConnect.pdb
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Debug\net6.0\FitnessConnect.genruntimeconfig.cache
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Debug\net6.0\ref\FitnessConnect.dll
+C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\bin\Debug\net6.0\NLog.dll

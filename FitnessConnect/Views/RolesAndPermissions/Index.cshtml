@@ -1,0 +1,228 @@
+﻿@{
+    ViewData["Title"] = "Roles & Permissions";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <ul class="page-breadcrumb breadcrumb">
+            <li>
+                <i class="bi bi-house-fill"></i>
+                <a asp-action="Index" asp-controller="Home">Home</a>
+                <i class="bi bi-chevron-right"></i>
+            </li>
+            <li>
+                <a asp-action="Index" asp-controller="RolesAndPermissions">Roles & Permission</a>
+            </li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3 class="page-title">Role Permission Management</h3>
+    </div>
+</div>
+
+<div class="bg-white shadow mt-5 p-4 rounded w-75 mx-auto" id="selectRole">
+    <h6 class="text-center">
+        Select a role for which you want to check/update permissions
+    </h6>
+    <div class="d-flex">
+        <div class="dropdown-center mx-auto">
+            <button class="px-5 btn btn-default border-2 border-secondary-subtle w-100 dropdown-toggle"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Select Role
+            </button>
+            <ul class="dropdown-menu text-center">
+                @foreach (var i in ViewBag.Roles)
+                {
+                    if (i.IsActive)
+                    {
+                        <li>
+                            <a class="dropdown-item px-0" role="button" onclick="hideShow('@i.Id')">@i.Name</a>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="managePer">
+    <div class="w-25 m-3">
+        <div class="form-group">
+            <label class="control-label">Select Role</label>
+            <select class="form-select w-75" id="select">
+                @foreach (var i in ViewBag.Roles)
+                {
+                    if (i.IsActive)
+                    {
+                        <option id="@i.Id" value="@i.Id">@i.Name</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+    <div class="bg-white shadow rounded p-3 mx-1">
+        <div class="d-flex justify-content-between">
+            <h5 class="text-start">Manage Permission</h5>
+            <a id="accManage" role="button" class="text-decoration-none">Expand All <i class="bi bi-chevron-double-down"></i></a>
+        </div>
+        <div class="">
+            <form asp-action="Index" method="post">
+                <input hidden id="RoleId" name="RoleId" value="" />
+                <div class="accordion my-3 shadow" id="accUser">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="User">
+                            <button class="accordion-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseUser"
+                                    aria-expanded="false" aria-controls="collapseUser">
+                                User
+                            </button>
+                        </h2>
+                        <div id="collapseUser" class="accordion-collapse collapse"
+                             aria-labelledby="Role" data-bs-parent="#accUser">
+                            <div class="accordion-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="">
+                                            <h6 class="fw-bold">Permissions for User Management</h6>
+                                            <p class="">
+                                                Provide permission to Add, View, Edit and Delete
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1 row">
+                                        <label class="switch col-auto m-auto" for="cbUser">
+                                            <input type="checkbox" id="cbUser" checked
+                                                   onchange="cbGroupUser()">
+                                            <div class="slider round"></div>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-5" id="cbGroupUser">
+                                        <div class="row d-flex py-3 justify-content-center gap-4">
+                                            <div class="col-auto px-0">
+                                                <lable class="form-check-label">
+                                                    <input class="form-check-input" id="UserCreate" name="UserCreate" type="checkbox">
+                                                    Create
+                                                </lable>
+                                            </div>
+                                            <div class="col-auto px-0">
+                                                <lable class="form-check-label">
+                                                    <input class="form-check-input" id="UserRead" name="UserRead" type="checkbox">
+                                                    Read
+                                                </lable>
+                                            </div>
+                                            <div class="col-auto px-0">
+                                                <lable class="form-check-label">
+                                                    <input class="form-check-input" id="UserEdit" name="UserEdit" type="checkbox">
+                                                    Edit
+                                                </lable>
+                                            </div>
+                                            <div class="col-auto px-0">
+                                                <lable class="form-check-label">
+                                                    <input class="form-check-input" id="UserDelete" name="UserDelete" type="checkbox">
+                                                    Delete
+                                                </lable>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-success">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('#managePer').hide();
+
+            $('#accManage').click(function () {
+                var isAnyExpanded = $('.accordion-collapse.show').length > 0;
+                if (isAnyExpanded) {
+                    $('.accordion-collapse').removeClass('show');
+                    $(this).html('Expand All <i class="bi bi-chevron-double-down"></i>');
+                    $('html, body').animate({ scrollTop: $(this).offset().top }, 'slow');
+                } else {
+                    $('.accordion-collapse').addClass('show');
+                    $(this).html('Collapse All <i class="bi bi-chevron-double-up"></i>');
+                    $('html, body').animate({ scrollTop: $(this).offset().top }, 'slow');
+                }
+            });
+        })
+
+        $('#select').on('change', function () {
+            $("#RoleId").val(this.value);
+            getPermissions(this.value);
+        });
+
+        function hideShow(str) {
+            $('#selectRole').hide();
+            $('#' + str).attr('selected', 'selected');
+            $("#RoleId").val(str);
+            getPermissions(str);
+            $('#managePer').show();
+        }
+
+        function getPermissions(str) {
+            $.ajax({
+                type: "get",
+                url: "../RolesAndPermissions/GetPermissionsForRole",
+                contentType: "application/json; charset=utf-8",
+                data: { "RoleId": str },
+                datatype: "json",
+                success: function (data) {
+                    if (data.length > 0) {
+                        uncheck();
+                        $.each(data, function (index, value) {
+                            $('#' + value.Name).prop('checked', true);
+                        });
+                    }
+                    else{
+                        uncheck();
+                    }
+                    if (($("#UserCreate").is(":checked")) || ($("#UserRead").is(":checked")) || ($("#UserEdit").is(":checked")) || ($("#UserDelete").is(":checked"))) {
+                        $("#cbUser").prop('checked', true);
+                        $('#cbGroupUser').show();
+                    }
+                    else {
+                        $("#cbUser").prop('checked', false);
+                        $('#cbGroupUser').hide();
+                    }
+                }
+            });
+        }
+
+        function cbGroupUser() {
+            var cbUser = $("#cbUser").is(":checked");
+            if (cbUser == false) {
+                $('#UserCreate').prop('checked', false);
+                $('#UserRead').prop('checked', false);
+                $('#UserEdit').prop('checked', false);
+                $('#UserDelete').prop('checked', false);
+                $('#cbGroupUser').hide();
+            }
+            else if (cbUser == true) {
+                $('#cbGroupUser').show();
+            }
+        }
+        function uncheck() {
+            //User
+            $('#UserCreate').prop('checked', false);
+            $('#UserRead').prop('checked', false);
+            $('#UserEdit').prop('checked', false);
+            $('#UserDelete').prop('checked', false);
+        }
+
+    </script>
+}
