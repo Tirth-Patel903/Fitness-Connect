@@ -16,8 +16,7 @@
     <link rel="stylesheet" href="~/FitnessConnect.styles.css" asp-append-version="true" />
     <link href="~/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="~/assets/plugins/bootstrap_Icons_1.10.3/bootstrap-icons.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <link href="~/assets/css/style-conquer.css" rel="stylesheet" type="text/css" />
     <link href="~/assets/css/style.css" rel="stylesheet" type="text/css" />
     <link href="~/assets/css/style-responsive.css" rel="stylesheet" type="text/css" />
@@ -29,51 +28,41 @@
             background: #69a716;
             border-color: #69a716;
         }
-
-            .btn-success:focus,
-            .btn-success:hover {
-                background: #4c7a10;
-                border-color: #4c7a10;
-            }
-
+        .btn-success:focus,
+        .btn-success:hover {
+            background: #4c7a10;
+            border-color: #4c7a10;
+        }
         .page-sidebar-wrapper {
             margin-top: 4.5rem;
         }
-
         .btn-outline-success {
             border-color: #69a716;
         }
-
-            .btn-outline-success:focus,
-            .btn-outline-success:hover {
-                border-color: #4c7a10;
-            }
-
+        .btn-outline-success:focus,
+        .btn-outline-success:hover {
+            border-color: #4c7a10;
+        }
         .margin62 {
             margin-left: 62rem
         }
-
         .form-check-input {
             border-width: 2px;
             border-color: #a3aab1;
         }
-
-            .form-check-input:checked {
-                background-color: #69a716;
-                border-color: #69a716;
-            }
-
+        .form-check-input:checked {
+            background-color: #69a716;
+            border-color: #69a716;
+        }
         .switch {
             display: inline-block;
             height: 48px;
             position: relative;
             width: 60px;
         }
-
-            .switch input {
-                display: none;
-            }
-
+        .switch input {
+            display: none;
+        }
         .slider {
             background-color: #ccc;
             bottom: 0;
@@ -84,38 +73,31 @@
             top: 0;
             transition: .4s;
         }
-
-            .slider:before {
-                background-color: #fff;
-                bottom: 4px;
-                content: "";
-                height: 16px;
-                left: 4px;
-                position: absolute;
-                transition: .4s;
-                width: 16px;
-            }
-
+        .slider:before {
+            background-color: #fff;
+            bottom: 4px;
+            content: "";
+            height: 16px;
+            left: 4px;
+            position: absolute;
+            transition: .4s;
+            width: 16px;
+        }
         input:checked + .slider {
             background-color: #69a716;
         }
-
-            input:checked + .slider:before {
-                transform: translateX(26px);
-            }
-
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
         .slider.round {
             border-radius: 34px;
         }
-
-            .slider.round:before {
-                border-radius: 50%;
-            }
-
+        .slider.round:before {
+            border-radius: 50%;
+        }
         label.error {
             color: #DC3545;
         }
-
         .footer {
             position: fixed;
             left: 0;
@@ -125,11 +107,9 @@
             padding: 10px 0;
             border-top: 2px solid #6c757d;
         }
-
         .footer-inner {
             text-align: center;
         }
-
         .avatarlogo {
             width: 45px;
             height: 45px;
@@ -143,14 +123,12 @@
             color: white;
             border: none;
         }
-
         ul.page-sidebar-menu li > ul.sub-menu > li > a:hover {
             background-color: #69a716 !important;
             border-color: #69a716 !important;
             border-radius: 5px;
             color: white !important;
         }
-
         .sub-menu li a:hover .title {
             color: white !important;
         }
@@ -281,6 +259,11 @@
                         </a>
                     </li>
                     <li class="" id="sidenav-service">
+                        <a class="fw-bold" asp-action="Index" asp-controller="Users">
+                            <i class="fa-solid fa-user text-dark"></i><span class="title">Manage Users</span>
+                        </a>
+                    </li>
+                    <li class="" id="sidenav-service">
                         <a class="fw-bold" asp-action="ContactUs" asp-controller="Home">
                             <i class="bi bi-tools text-dark"></i><span class="title">Contact Us</span>
                         </a>
@@ -315,14 +298,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1"></script>
     <script src="~/microsoft/signalr/dist/browser/signalr.js"></script>
-    @*<script src="~/microsoft/signalr/dist/browser/signalr.min.js"></script>*@
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
     <script src="~/assets/scripts/app.js" type="text/javascript"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

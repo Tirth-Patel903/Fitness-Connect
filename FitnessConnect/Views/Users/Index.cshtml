@@ -1,0 +1,173 @@
+﻿@model FitnessConnect.ViewModels.UsersViewModel;
+@{
+    ViewData["Title"] = "Users";
+    var userList = ViewBag.Users;
+}
+<style>
+    .error {
+        color: red;
+    }
+
+    #main_card {
+        display: grid;
+    }
+</style>
+<div class="app-main__inner">
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div>
+                    <h4 class="text-center mb-3" style="font-weight: 600;">Manage Users</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-card mb-3 card" id="main_card">
+        <div class="card-header">
+            User List
+        </div>
+        <div class="table-responsive">
+            <table id="userTable" class="align-middle mb-0 table table-borderless table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th class="nosort pr-5">Action</th>
+                        <th>
+                            First Name
+                        </th>
+                        <th>
+                            Last Name
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            ModifiedBy
+                        </th>
+                        <th>
+                            ModifiedOn
+                        </th>
+                        <th>
+                            IsUser Active
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="SetUserList">
+                    @foreach (var item in ViewBag.Users)
+                    {
+                        <tr>
+                            <td>
+                                <a onclick="deleteUser('@item.Id')"><i class='fa fa-trash' aria-hidden='true'></i></a>
+                            </td>
+                            <td>@item.FirstName</td>
+                            <td>@item.LastName</td>
+                            <td>@item.Email</td>
+                            <td>@item.ModifiedById</td>
+                            <td>@item.ModifiedOn</td>
+                            <td>@item.IsActive</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- Model for User Update and Create-->
+<div id="myModal" class="mt-4 modal fade" role="dialog">
+    <form asp-action="Create" id="UserCreateUpdate">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="setModalHeader">Create User</h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="hidden" id="userId" />
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input type="text" name="firstname" id="firstName" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input type="text" name="lastname" id="lastName" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="text" name="email" id="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Mobile</label>
+                                <input type="text" name="mobileno" id="mobileno" class="form-control" required>
+                            </div>
+                            
+                            <div class="text-center">
+                                <button type="button" data-dismiss="modal" class="btn-shadow btn btn-info">Cancel</button>
+                                <button type="submit" class="btn-shadow btn btn-info">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#userTable').DataTable({
+                "pagingType": "full_numbers",
+                'aoColumnDefs': [{'bSortable': false,'aTargets': ['nosort'] }]
+            });
+        $("#loadingStatus").html('');
+
+    });
+    
+    function deleteUser(id)
+    {
+         toastr.options = {
+              "closeButton": true,
+              "newestOnTop": false,
+              "progressBar": true,
+              "positionClass": "toast-bottom-center",
+              "preventDuplicates": false,
+              "onclick": null,
+              "showDuration": "300",
+              "hideDuration": "1000",
+              "timeOut": "5000",
+              "extendedTimeOut": "1000",
+              "showEasing": "swing",
+              "hideEasing": "linear",
+              "showMethod": "fadeIn",
+              "hideMethod": "fadeOut"
+        }
+        var res=confirm('Are you sure you want to delete this User?');
+        if(res == true){
+           $.ajax({
+                url: '@Url.Action("DeleteUser", "Users")',
+                type: 'POST',
+                data: {
+                    id:id,
+                },
+                success: function (msg) {
+
+                    if(msg.success)
+                    {
+                       toastr.success("User Deleted Successfully!");
+                        location.reload();
+                        Hide()
+                    }
+                    else
+                    {
+                        toastr.warning("You Can't Delete This User");
+                    }
+                },
+                error: function (msg) {
+                }
+           });
+        }
+    }
+
+
+</script>

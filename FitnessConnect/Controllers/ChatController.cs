@@ -28,7 +28,7 @@ namespace FitnessConnect.Controllers
 
             // Now you can use currentUser to access user properties
             string userEmail = currentUser.Email;
-            var userList = _usersrepo.getUsers().Where(a=>a.Email != userEmail).ToList();
+            var userList = _usersrepo.GetUsers().Where(a=>a.Email != userEmail).ToList();
             ViewBag.userList= userList;
             ViewBag.currentUser = userEmail;
             return View();
