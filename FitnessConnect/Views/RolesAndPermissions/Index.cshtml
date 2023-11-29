@@ -132,6 +132,67 @@
                         </div>
                     </div>
                 </div>
+                <div class="accordion my-3 shadow" id="accPermission">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="Permission">
+                            <button class="accordion-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapsePermission"
+                                    aria-expanded="false" aria-controls="collapsePermission">
+                                Permission
+                            </button>
+                        </h2>
+                        <div id="collapsePermission" class="accordion-collapse collapse"
+                             aria-labelledby="Role" data-bs-parent="#accPermission">
+                            <div class="accordion-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="">
+                                            <h6 class="fw-bold">Permissions for Permission Management</h6>
+                                            <p class="">
+                                                Provide permission to Add, View, Edit and Delete
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1 row">
+                                        <label class="switch col-auto m-auto" for="cbPermission">
+                                            <input type="checkbox" id="cbPermission" checked
+                                                   onchange="cbGroupPermission()">
+                                            <div class="slider round"></div>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-5" id="cbGroupPermission">
+                                        <div class="row d-flex py-3 justify-content-center gap-4">
+                                            <div class="col-auto px-0">
+                                                <lable class="form-check-label">
+                                                    <input class="form-check-input" id="PermissionCreate" name="PermissionCreate" type="checkbox">
+                                                    Create
+                                                </lable>
+                                            </div>
+                                            <div class="col-auto px-0">
+                                                <lable class="form-check-label">
+                                                    <input class="form-check-input" id="PermissionRead" name="PermissionRead" type="checkbox">
+                                                    Read
+                                                </lable>
+                                            </div>
+                                            <div class="col-auto px-0">
+                                                <lable class="form-check-label">
+                                                    <input class="form-check-input" id="PermissionEdit" name="PermissionEdit" type="checkbox">
+                                                    Edit
+                                                </lable>
+                                            </div>
+                                            <div class="col-auto px-0">
+                                                <lable class="form-check-label">
+                                                    <input class="form-check-input" id="PermissionDelete" name="PermissionDelete" type="checkbox">
+                                                    Delete
+                                                </lable>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 
 
                 <div class="d-flex justify-content-end">
@@ -199,6 +260,14 @@
                         $("#cbUser").prop('checked', false);
                         $('#cbGroupUser').hide();
                     }
+                    if (($("#PermissionCreate").is(":checked")) || ($("#PermissionRead").is(":checked")) || ($("#PermissionEdit").is(":checked")) || ($("#PermissionDelete").is(":checked"))) {
+                        $("#cbPermission").prop('checked', true);
+                        $('#cbGroupPermission').show();
+                    }
+                    else {
+                        $("#cbPermission").prop('checked', false);
+                        $('#cbGroupPermission').hide();
+                    }
                 }
             });
         }
@@ -222,6 +291,26 @@
             $('#UserRead').prop('checked', false);
             $('#UserEdit').prop('checked', false);
             $('#UserDelete').prop('checked', false);
+        }
+        function cbGroupPermission() {
+            var cbPermission = $("#cbPermission").is(":checked");
+            if (cbPermission == false) {
+                $('#PermissionCreate').prop('checked', false);
+                $('#PermissionRead').prop('checked', false);
+                $('#PermissionEdit').prop('checked', false);
+                $('#PermissionDelete').prop('checked', false);
+                $('#cbGroupPermission').hide();
+            }
+            else if (cbPermission == true) {
+                $('#cbGroupPermission').show();
+            }
+        }
+        function uncheck() {
+            //Permission
+            $('#PermissionCreate').prop('checked', false);
+            $('#PermissionRead').prop('checked', false);
+            $('#PermissionEdit').prop('checked', false);
+            $('#PermissionDelete').prop('checked', false);
         }
 
     </script>

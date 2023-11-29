@@ -1,5 +1,6 @@
 ﻿using FitnessConnect.Data.Models;
 using FitnessConnect.Service.Interface;
+using FitnessConnect.Services;
 using FitnessConnect.ViewModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -22,7 +23,7 @@ namespace FitnessConnect.Controllers
             _permissionRepository = permissionRepository;
             _rolePermissionRepository = rolePermissionRepository;
         }
-        //[PermissionAuthorize(Roles = "Senior Accountant")]
+        [PermissionAuthorize(Roles = "Admin", Permissions = "PermissionRead")]
         public IActionResult Index()
         {
             try
@@ -40,7 +41,7 @@ namespace FitnessConnect.Controllers
         }
 
         [HttpPost]
-        //[PermissionAuthorize(Roles = "Senior Accountant")]
+        [PermissionAuthorize(Roles = "Admin", Permissions = "PermissionCreate")]
         public IActionResult Index(IFormCollection fc)
         {
             try

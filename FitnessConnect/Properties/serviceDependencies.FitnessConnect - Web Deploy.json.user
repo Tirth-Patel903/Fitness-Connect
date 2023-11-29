@@ -1,0 +1,69 @@
+{
+  "dependencies": {
+    "mssql2": {
+      "restored": false,
+      "restoreTime": "2023-11-28T11:04:58.7901661Z"
+    },
+    "signalr1": {
+      "restored": true,
+      "restoreTime": "2023-11-27T07:10:51.7310673Z"
+    }
+  },
+  "parameters": {
+    "FitnessConnect.resourceGroupName": {
+      "Name": "FitnessConnect.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "DotNetWebApp"
+    },
+    "FitnessConnect.subscriptionId": {
+      "Name": "FitnessConnect.subscriptionId",
+      "Type": "subscription",
+      "Value": "aa135e36-9803-4d3a-af72-73499568503b"
+    },
+    "signalr1.resourceGroupName": {
+      "Name": "signalr1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "DotNetWebApp"
+    },
+    "FitnessConnect.resourceGroupLocation": {
+      "Name": "FitnessConnect.resourceGroupLocation",
+      "Type": null,
+      "Value": "eastus"
+    },
+    "mssql2.resourceGroupLocation": {
+      "Name": "mssql2.resourceGroupLocation",
+      "Type": "location",
+      "Value": "eastus"
+    },
+    "signalr1.subscriptionId": {
+      "Name": "signalr1.subscriptionId",
+      "Type": "subscription",
+      "Value": "aa135e36-9803-4d3a-af72-73499568503b"
+    },
+    "signalr1.resourceGroupLocation": {
+      "Name": "signalr1.resourceGroupLocation",
+      "Type": "location",
+      "Value": "eastus"
+    },
+    "mssql2.subscriptionId": {
+      "Name": "mssql2.subscriptionId",
+      "Type": "subscription",
+      "Value": "aa135e36-9803-4d3a-af72-73499568503b"
+    },
+    "subscriptionId": {
+      "Name": "subscriptionId",
+      "Type": "subscription",
+      "Value": "aa135e36-9803-4d3a-af72-73499568503b"
+    },
+    "FitnessConnect.resourceName": {
+      "Name": "FitnessConnect.resourceName",
+      "Type": null,
+      "Value": "FitnessConnect"
+    },
+    "mssql2.resourceGroupName": {
+      "Name": "mssql2.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "DotNetWebApp"
+    }
+  }
+}

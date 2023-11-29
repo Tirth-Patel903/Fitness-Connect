@@ -9,9 +9,13 @@ C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Rele
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\MessagePack.Annotations.dll
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Http.Connections.Client.dll
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Identity.UI.dll
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Razor.Language.dll
+C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\Microsoft.Azure.SignalR.Common.dll
+C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\Microsoft.Azure.SignalR.dll
+C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\Microsoft.Azure.SignalR.Protocols.dll
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\Microsoft.Build.dll
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\Microsoft.Build.Framework.dll

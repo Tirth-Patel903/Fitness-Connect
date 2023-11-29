@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA7sfkfEDboEW6oH/hDOn0lAAAAAACAAAAAAAQZgAAAAEAACAAAAAP8yOz7YbHQ7dezbpMu+vnZny7CQ1LOEoQk0mn8WnD5QAAAAAOgAAAAAIAACAAAACJfKrmezci+3ruKMOPvp5n+YDlE7pnr4ZeS4ts7HD69oAAAADktcVf+Rp8Gzde/CGL/w8Yq7jg9ASOzxE7o5iF+7szw3Pr91VA7YNeTWuqGItI+3XboudKxWgeyNyr5H20bjg4sOngRIyuoBLS5Viw7C8GPe6NTS9635irv4RtrkUsPGcu4a4y+6u/Zk4WAr0ItUeVpFXj8jAavifL9sJiWlqijkAAAAAKr5cnszT+t267pCAlSJadeXmDKVxpWw85h+WDTiEXr8VvQCuLray+EAm/ap3t2pVbzxJhb+P3InSk9sqEPQIL</EncryptedPassword>
+    <History>False|2023-11-28T11:18:23.8561348Z;False|2023-11-28T16:43:34.4332528+05:30;False|2023-11-28T16:35:09.8959492+05:30;False|2023-11-28T16:33:13.6380420+05:30;False|2023-11-28T16:27:46.6987615+05:30;False|2023-11-28T16:23:19.3746750+05:30;False|2023-11-28T16:20:43.1964048+05:30;False|2023-11-28T16:19:40.5572867+05:30;True|2023-11-27T12:47:28.9369373+05:30;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="ApplicationDbContextConnection">
+      <Value>Data Source=tcp:fitnessconnect.database.windows.net,1433%3bInitial Catalog=FitnessConnect%3bUser Id=tpatel50%40stevens.edu%40fitnessconnect%3bPassword=Pradip%40123456%40</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>
