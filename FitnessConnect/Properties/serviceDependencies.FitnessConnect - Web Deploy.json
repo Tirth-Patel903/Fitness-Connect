@@ -1,17 +1,14 @@
 {
   "dependencies": {
-    "signalr1": {
-      "secretStore": "AzureAppSettings",
-      "resourceId": "/subscriptions/aa135e36-9803-4d3a-af72-73499568503b/resourceGroups/DotNetWebApp/providers/Microsoft.SignalRService/SignalR/FitnessConnect",
-      "type": "signalr.azure",
-      "connectionId": "Azure:SignalR:ConnectionString",
-      "dynamicId": null
+    "secrets1": {
+      "ignored": "true",
+      "type": "secrets.keyVault"
     },
-    "mssql2": {
+    "mssql1": {
       "secretStore": "AzureAppSettings",
-      "resourceId": "/subscriptions/aa135e36-9803-4d3a-af72-73499568503b/resourceGroups/DotNetWebApp/providers/Microsoft.Sql/servers/fitnessconnect/databases/FitnessConnect",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/fitnessconnect/databases/FitnessConnect",
       "type": "mssql.azure",
-      "connectionId": "ConnectionStrings:ApplicationDbContextConnection",
+      "connectionId": "ConnectionStrings",
       "dynamicId": null
     }
   }

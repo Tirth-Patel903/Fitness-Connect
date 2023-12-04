@@ -23,6 +23,8 @@
     <link href="~/assets/css/plugins.css" rel="stylesheet" type="text/css" />
     <link href="~/assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color" />
     <link href="~/assets/css/custom.css" rel="stylesheet" type="text/css" />
+    
+
     <style>
         .btn-success {
             background: #69a716;
@@ -264,6 +266,11 @@
                         </a>
                     </li>
                     <li class="" id="sidenav-service">
+                        <a class="fw-bold" asp-action="ManageContact" asp-controller="Home">
+                            <i class="fa-solid fa-user text-dark"></i><span class="title">Manage Contacts</span>
+                        </a>
+                    </li>
+                    <li class="" id="sidenav-service">
                         <a class="fw-bold" asp-action="ContactUs" asp-controller="Home">
                             <i class="bi bi-tools text-dark"></i><span class="title">Contact Us</span>
                         </a>
@@ -294,10 +301,11 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/microsoft-signalr/signalr.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1"></script>
-    <script src="~/microsoft/signalr/dist/browser/signalr.js"></script>
+    @*<script src="~/microsoft/signalr/dist/browser/signalr.js"></script>*@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
     <script src="~/assets/scripts/app.js" type="text/javascript"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>

@@ -41,5 +41,10 @@ namespace FitnessConnect.Services
             _context.Logger.Add(logger);
             _context.SaveChanges();
         }
+
+        public List<Contact> GetContacts()
+        {
+            return _context.Contact.ToList();
+        }
     }
 }

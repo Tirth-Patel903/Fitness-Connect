@@ -1,261 +1,330 @@
 ﻿<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 <style>
-    body{
-    background-color: #f4f7f6;
-    margin-top:20px;
-}
-.card {
-    background: #fff;
-    transition: .5s;
-    border: 0;
-    margin-bottom: 30px;
-    border-radius: .55rem;
-    position: relative;
-    width: 100%;
-    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
-}
-.chat-app .people-list {
-    width: 280px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding: 20px;
-    z-index: 7
-}
+    body {
+        background-color: #f4f7f6;
+        margin-top: 20px;
+    }
 
-.chat-app .chat {
-    margin-left: 280px;
-    border-left: 1px solid #eaeaea
-}
-
-.people-list {
-    -moz-transition: .5s;
-    -o-transition: .5s;
-    -webkit-transition: .5s;
-    transition: .5s
-}
-
-.people-list .chat-list li {
-    padding: 10px 15px;
-    list-style: none;
-    border-radius: 3px
-}
-
-.people-list .chat-list li:hover {
-    background: #efefef;
-    cursor: pointer
-}
-
-.people-list .chat-list li.active {
-    background: #efefef
-}
-
-.people-list .chat-list li .name {
-    font-size: 15px
-}
-
-.people-list .chat-list img {
-    width: 45px;
-    border-radius: 50%
-}
-
-.people-list img {
-    float: left;
-    border-radius: 50%
-}
-
-.people-list .about {
-    float: left;
-    padding-left: 8px
-}
-
-.people-list .status {
-    color: #999;
-    font-size: 13px
-}
-
-.chat .chat-header {
-    padding: 15px 20px;
-    border-bottom: 2px solid #f4f7f6
-}
-
-.chat .chat-header img {
-    float: left;
-    border-radius: 40px;
-    width: 40px
-}
-
-.chat .chat-header .chat-about {
-    float: left;
-    padding-left: 10px
-}
-
-.chat .chat-history {
-    padding: 20px;
-    border-bottom: 2px solid #fff
-}
-
-.chat .chat-history ul {
-    padding: 0
-}
-
-.chat .chat-history ul li {
-    list-style: none;
-    margin-bottom: 30px
-}
-
-.chat .chat-history ul li:last-child {
-    margin-bottom: 0px
-}
-
-.chat .chat-history .message-data {
-    margin-bottom: 15px
-}
-
-.chat .chat-history .message-data img {
-    border-radius: 40px;
-    width: 40px
-}
-
-.chat .chat-history .message-data-time {
-    color: #434651;
-    padding-left: 6px
-}
-
-.chat .chat-history .message {
-    color: #444;
-    padding: 18px 20px;
-    line-height: 26px;
-    font-size: 16px;
-    border-radius: 7px;
-    display: inline-block;
-    position: relative
-}
-
-.chat .chat-history .message:after {
-    bottom: 100%;
-    left: 7%;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-    border-bottom-color: #fff;
-    border-width: 10px;
-    margin-left: -10px
-}
-
-.chat .chat-history .my-message {
-    background: #efefef
-}
-
-.chat .chat-history .my-message:after {
-    bottom: 100%;
-    left: 30px;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-    border-bottom-color: #efefef;
-    border-width: 10px;
-    margin-left: -10px
-}
-
-.chat .chat-history .other-message {
-    background: #e8f1f3;
-    text-align: right
-}
-
-.chat .chat-history .other-message:after {
-    border-bottom-color: #e8f1f3;
-    left: 93%
-}
-
-.chat .chat-message {
-    padding: 20px
-}
-
-.online,
-.offline,
-.me {
-    margin-right: 2px;
-    font-size: 8px;
-    vertical-align: middle
-}
-
-.online {
-    color: #86c541
-}
-
-.offline {
-    color: #e47297
-}
-
-.me {
-    color: #1d8ecd
-}
-
-.float-right {
-    float: right
-}
-
-.clearfix:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0
-}
-
-@@media only screen and (max-width: 767px) {
-    .chat-app .people-list {
-        height: 465px;
-        width: 100%;
-        overflow-x: auto;
+    .card {
         background: #fff;
-        left: -400px;
-        display: none
+        transition: .5s;
+        border: 0;
+        margin-bottom: 30px;
+        border-radius: .55rem;
+        position: relative;
+        width: 100%;
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
     }
-    .chat-app .people-list.open {
-        left: 0
+
+    .chat-app .people-list {
+        width: 280px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding: 20px;
+        z-index: 7
     }
+
     .chat-app .chat {
-        margin: 0
+        margin-left: 280px;
+        border-left: 1px solid #eaeaea
     }
-    .chat-app .chat .chat-header {
-        border-radius: 0.55rem 0.55rem 0 0
-    }
-    .chat-app .chat-history {
-        height: 300px;
-        overflow-x: auto
-    }
-}
 
-@@media only screen and (min-width: 768px) and (max-width: 992px) {
-    .chat-app .chat-list {
-        height: 650px;
-        overflow-x: auto
+    .people-list {
+        -moz-transition: .5s;
+        -o-transition: .5s;
+        -webkit-transition: .5s;
+        transition: .5s
     }
-    .chat-app .chat-history {
-        height: 600px;
-        overflow-x: auto
-    }
-}
 
-@@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
-    .chat-app .chat-list {
-        height: 480px;
-        overflow-x: auto
+        .people-list .chat-list li {
+            padding: 10px 15px;
+            list-style: none;
+            border-radius: 3px
+        }
+
+            .people-list .chat-list li:hover {
+                background: #efefef;
+                cursor: pointer
+            }
+
+            .people-list .chat-list li.active {
+                background: #efefef
+            }
+
+            .people-list .chat-list li .name {
+                font-size: 15px
+            }
+
+        .people-list .chat-list img {
+            width: 45px;
+            border-radius: 50%
+        }
+
+        .people-list img {
+            float: left;
+            border-radius: 50%
+        }
+
+        .people-list .about {
+            float: left;
+            padding-left: 8px
+        }
+
+        .people-list .status {
+            color: #999;
+            font-size: 13px
+        }
+
+    .chat .chat-header {
+        padding: 15px 20px;
+        border-bottom: 2px solid #f4f7f6
     }
-    .chat-app .chat-history {
-        height: calc(100vh - 350px);
-        overflow-x: auto
+
+        .chat .chat-header img {
+            float: left;
+            border-radius: 40px;
+            width: 40px
+        }
+
+        .chat .chat-header .chat-about {
+            float: left;
+            padding-left: 10px
+        }
+
+    .chat .chat-history {
+        padding: 20px;
+        border-bottom: 2px solid #fff
     }
-}
+
+        .chat .chat-history ul {
+            padding: 0
+        }
+
+            .chat .chat-history ul li {
+                list-style: none;
+                margin-bottom: 30px
+            }
+
+                .chat .chat-history ul li:last-child {
+                    margin-bottom: 0px
+                }
+
+        .chat .chat-history .message-data {
+            margin-bottom: 15px
+        }
+
+            .chat .chat-history .message-data img {
+                border-radius: 40px;
+                width: 40px
+            }
+
+        .chat .chat-history .message-data-time {
+            color: #434651;
+            padding-left: 6px
+        }
+
+        .chat .chat-history .message {
+            color: #444;
+            padding: 18px 20px;
+            line-height: 26px;
+            font-size: 16px;
+            border-radius: 7px;
+            display: inline-block;
+            position: relative
+        }
+
+            .chat .chat-history .message:after {
+                bottom: 100%;
+                left: 7%;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+                border-bottom-color: #fff;
+                border-width: 10px;
+                margin-left: -10px
+            }
+
+        .chat .chat-history .my-message {
+            background: #efefef
+        }
+
+            .chat .chat-history .my-message:after {
+                bottom: 100%;
+                left: 30px;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+                border-bottom-color: #efefef;
+                border-width: 10px;
+                margin-left: -10px
+            }
+
+        .chat .chat-history .other-message {
+            background: #e8f1f3;
+            text-align: right
+        }
+
+            .chat .chat-history .other-message:after {
+                border-bottom-color: #e8f1f3;
+                left: 93%
+            }
+
+    .chat .chat-message {
+        padding: 20px
+    }
+
+    .online,
+    .offline,
+    .me {
+        margin-right: 2px;
+        font-size: 8px;
+        vertical-align: middle
+    }
+
+    .online {
+        color: #86c541
+    }
+
+    .offline {
+        color: #e47297
+    }
+
+    .me {
+        color: #1d8ecd
+    }
+
+    .float-right {
+        float: right
+    }
+
+    .clearfix:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0
+    }
+
+    @@media only screen and (max-width: 767px) {
+        .chat-app .people-list {
+            height: 465px;
+            width: 100%;
+            overflow-x: auto;
+            background: #fff;
+            left: -400px;
+            display: none
+        }
+
+            .chat-app .people-list.open {
+                left: 0
+            }
+
+        .chat-app .chat {
+            margin: 0
+        }
+
+            .chat-app .chat .chat-header {
+                border-radius: 0.55rem 0.55rem 0 0
+            }
+
+        .chat-app .chat-history {
+            height: 300px;
+            overflow-x: auto
+        }
+    }
+
+    @@media only screen and (min-width: 768px) and (max-width: 992px) {
+        .chat-app .chat-list {
+            height: 650px;
+            overflow-x: auto
+        }
+
+        .chat-app .chat-history {
+            height: 600px;
+            overflow-x: auto
+        }
+    }
+
+    @@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+        .chat-app .chat-list {
+            height: 480px;
+            overflow-x: auto
+        }
+
+        .chat-app .chat-history {
+            height: calc(100vh - 350px);
+            overflow-x: auto
+        }
+    }
+
+    #chatBox {
+        position: relative;
+        width: 100%;
+        height: calc(100%-120px);
+        padding: 50px;
+        overflow-y: auto;
+    }
+
+    .msg {
+        position: relative;
+        display: flex;
+        width: 100%;
+        margin: 5px 0;
+    }
+
+        .msg p {
+            position: relative;
+            right: auto;
+            text-align: right;
+            max-width: 65%;
+            padding: 12px;
+            background: #dcf8dc;
+            border-radius: 10px;
+            font-size: 0.9em;
+        }
+
+            .msg p span {
+                display: block;
+                margin-top: 5px;
+                font-size: 0.85em;
+                opacity: 0.5
+            }
+
+    /*  .myMsg {
+                                justify-content: flex-start;
+                            }
+
+                            .fromMsg{
+                                justify-content: flex-end;
+                            } */
+    .reseverMsg p::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -12px;
+        width: 20px;
+        height: 20px;
+        background: linear-gradient(135deg,#dcf8dc 0%,#dcf8dc 50%,transparent 50%,transparent)
+    }
+
+
+    .senderMsg p::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -12px;
+        width: 20px;
+        height: 20px;
+        background: linear-gradient(225deg,#dcf8dc 0%,#dcf8dc 50%,transparent 50%,transparent)
+    }
 </style>
 
 <div class="row">
@@ -274,224 +343,202 @@
     </div>
 </div>
 <div class="container">
-<div class="row clearfix">
-    <div class="col-lg-12">
-        <div class="card chat-app">
-            <div id="plist" class="people-list">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa fa-search"></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Search...">
-                </div>
-                <ul class="list-unstyled chat-list mt-2 mb-0">
-                @foreach (var item in ViewBag.userList)
-                {
-                    var initials = $"{(item.FirstName.Length > 0 ? item.FirstName[0].ToString() : "")} {(item.LastName.Length > 0 ? item.LastName[0].ToString() : "")}";
-                    <li class="clearfix">
-                        <img src="/profileimg/@item.ProfileImg">
-                        <div class="about" onclick="loadChatMessages('@item.Id','@item.ProfileImg','@initials','@item.FirstName @item.LastName')" >
-                            <div class="name">@item.FirstName @item.LastName</div>
-                            <div class="status"> <i class="fa fa-circle offline"></i> left 7 mins ago </div>                                            
+    <div class="row clearfix">
+        <div class="col-lg-12">
+            <div class="card chat-app">
+                <div id="plist" class="people-list">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" style="padding-bottom: 10px;"><i class="fa fa-search"></i></span>
                         </div>
-                    </li>
-                }
-                </ul>
-            </div>
-            <div class="chat">
-                <div class="chat-header clearfix">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <a href="javascript:void(0);" style="float:left" id="imgUserTag" data-toggle="modal" data-target="#view_info">
-                            </a>
-                            <div class="chat-about">
-                                <h6 class="m-b-0" id="ChatWithUser"></h6>
-                                <small>Last seen: 2 hours ago</small>
+                        <input type="text" class="form-control" placeholder="Search...">
+                    </div>
+                    <div style="height:300px">
+                        <ul class="list-unstyled chat-list mt-2 mb-0">
+                            @foreach (var item in ViewBag.userList)
+                            {
+                                var initials = $"{(item.FirstName.Length > 0 ? item.FirstName[0].ToString() : "")} {(item.LastName.Length > 0 ? item.LastName[0].ToString() : "")}";
+                                <li class="clearfix d-flex rounded border-bottom border-dark">
+                                    @* <img src="/profileimg/@item.ProfileImg" class="w-50" style=""> *@
+                                    <button class="proImgNav" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                            style="background-image: url('/profileimg/@item.ProfileImg');width:35px; height:35px;"></button>
+                                    <div class="about" onclick="loadChatMessages('@item.Id','@item.ProfileImg','@initials','@item.FirstName @item.LastName')">
+                                        <div class="name">@item.FirstName @item.LastName</div>
+                                        <div class="status"> <i class="fa fa-circle offline"></i> left 7 mins ago </div>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="chat">
+                    <div class="chat-header clearfix">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="chat-about">
+                                    <div class="d-flex">
+                                        <button class="proImgNav" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                                style="background-image: url('/profileimg/Profile_pexels-pixabay-220453.jpg');width:35px; height:35px;"></button>
+                                        <h6 class="m-b-0 ms-3 mt-2" id="ChatWithUser">Faizan Vahora</h6>
+                                    </div>
+                                    <small class="mt-2">Last seen: 2 hours ago</small>
+                                </div>
                             </div>
                         </div>
-                        @*<div class="col-lg-6 hidden-sm text-right">
-                            <a href="javascript:void(0);" class="btn btn-outline-secondary"><i class="fa fa-camera"></i></a>
-                            <a href="javascript:void(0);" class="btn btn-outline-primary"><i class="fa fa-image"></i></a>
-                            <a href="javascript:void(0);" class="btn btn-outline-info"><i class="fa fa-cogs"></i></a>
-                            <a href="javascript:void(0);" class="btn btn-outline-warning"><i class="fa fa-question"></i></a>
-                        </div>*@
                     </div>
-                </div>
-                <div class="chat-history" id="chatBox">
-                </div>
-                <div class="chat-message clearfix">
-                    <div class="input-group mb-0">
-                        <div class="input-group-prepend ">
-                            <a class="btn btn-sm btn-primary send-button my-1"><span class="input-group-text"><i class="fa fa-send"></i></span></a>
-                            
+
+                    <div class="container mt-5">
+                        <div class="card">
+                            <div class="chat-history" id="chatBox" style="height: 300px; overflow-y: auto;">
+                            </div>
                         </div>
-                        <input type="text" class="form-control" id="commentTextarea" placeholder="Enter text here...">                                    
                     </div>
+                    <div class="chat-message clearfix">
+                        <div class="input-group mb-0">
+                            <div class="input-group-prepend ">
+                                <a class="btn btn-sm btn-primary send-button my-1"><span class="input-group-text"><i class="fa fa-send"></i></span></a>
+                            </div>
+                            <input type="text" class="form-control" id="commentTextarea" placeholder="Enter text here...">
+                        </div>
+                    </div>
+                    <input type="hidden" id="hiddenId" value="">
+                    <input type="hidden" id="hiddenProfileImg" value="">
+                    <input type="hidden" id="hiddenAvatar" value="">
                 </div>
-                 <input type="hidden" id="hiddenId" value="">
-                 <input type="hidden" id="hiddenProfileImg" value="">
-                 <input type="hidden" id="hiddenAvatar" value="">
             </div>
         </div>
     </div>
 </div>
-</div>
 @section Scripts {
-<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/5.0.7/signalr.min.js"></script>
-<script>
-    $(document).ready(function () {
-        var connection = new signalR.HubConnectionBuilder().withUrl("/chathub").build();
-        connection.start()
-            .then(function () {
-                console.log("SignalR connection established.");
-                // Perform any additional operations after successful connection
-            })
-            .catch(function (err) {
-                console.error("Error starting SignalR connection: " + err);
-                // Handle connection error
-            });
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/5.0.7/signalr.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var scroller = $('#chatBox');
+            scroller.scrollTop(scroller.prop('scrollHeight'));
+            var connection = new signalR.HubConnectionBuilder().withUrl("/chathub").build();
+            connection.start()
+                .then(function () {
+                    console.log("SignalR connection established.");
+                    // Perform any additional operations after successful connection
+                })
+                .catch(function (err) {
+                    console.error("Error starting SignalR connection: " + err);
+                    // Handle connection error
+                });
             //mesbox form submit send msg
             $(".send-button").off("mousedown").on('mousedown', function () {
                 //var file = $("#file-upload").prop("files")[0];
-                 var to = $("#hiddenId").val();
+                var to = $("#hiddenId").val();
                 var comment = $("#commentTextarea").val();
-              //  var data = id + "," + to + "," + comment;
+                //  var data = id + "," + to + "," + comment;
                 connection.invoke("SendMessage", comment.toString(), to.toString()).then(function () {
                     $("#commentTextarea").val("");
-                 loadChatMessages($("#hiddenId").val());
-            }).catch(function (err) {
-                console.error(err);
-            });
+                    loadChatMessages($("#hiddenId").val());
+                }).catch(function (err) {
+                    console.error(err);
+                });
             });
             connection.on("ReceiveMessage", function (sender, message, timestamp) {
                 appendMessage(sender, message, timestamp);
             });
-    });
-    //Javascript
-    function loadChatMessages(Id,profileImg,avatar,username) {
-        var htmlToAdd;
-        if (profileImg=="") {
-            htmlToAdd = '<span class="initials" > '+avatar+'</span>';
-        } else {
-            htmlToAdd = '<img id="userImage" src="profileimg/'+profileImg+'">'; 
-        }   
-        $("#hiddenId").val(Id);
-        $("#hiddenProfileImg").val(profileImg);
-        $("#hiddenAvatar").val(avatar);
-        $("#imgUserTag").html(htmlToAdd);
-        $("#ChatWithUser").text(username);
-        $.ajax({
-            url: '../Chat/getMessages/' + Id, // Replace with your server endpoint to fetch chat messages
-            method: 'GET',
-            dataType: 'json',
-            success: function (response) {
-                $('#chatBox').empty();
-                
-                // Clear existing chat messages
-                var currentUser = '@ViewBag.currentUser';
-                response.forEach(function (message) {
-                    const createdOn = message.createdOn; // Replace this with your actual createdOn value
-                const formattedTime = formatMessageTime(createdOn);
-                    var chatMessage = null;
-                    if (message.email !== currentUser) {
-                        chatMessage = `<ul class="m-b-0" id="chatUL">
-                        <li class="clearfix">
-                            <div class="message-data text-right">
-                                <span class="message-data-time float-right">${formattedTime}</span>
-                               ${message.profileImg !== null ? `
-                                    <img style="float:right" src="/profileimg/${message.profileImg}" alt="avatar">
-                                ` : `
-                                    <span style="float:right" class="initials">${message.avatar}</span>
-                                `}
-                            </div>
-                            <div class="message other-message float-right">${message.message}</div>
-                        </li>
-                        </ul>`;
-                    } else {
-                        chatMessage = `<ul class="m-b-0">
-                        <li class="clearfix">
-                            <div class="message-data">
-                            ${message.profileImg !== null ? `
-                                    <img style="float:left" src="/profileimg/${message.profileImg}" alt="avatar">
-                                ` : `
-                                    <span style="float:left" class="initials">${message.avatar}</span>
-                                `}
-                                <span class="message-data-time">${formattedTime}</span>
-                                
-                            </div>
-                            <div class="message other-message">${message.message}</div>
-                        </li>
-                    </ul>`;
-                    }
-                    
-                    $('#chatBox').append(chatMessage);
-                });
-            },
-            error: function (xhr, status, error) {
-                console.error('Error loading chat messages:', error);
-            }
         });
-    }
-    function appendMessage(sender, message, timestamp) {
-        //var profileImg = $("#hiddenProfileImg").val() == null ? $("#hiddenAvatar").val() : $("#hiddenProfileImg").val();
-        //var chatMessage =
-        //    `<li class="clearfix">
-        //        <div class="message-data text-right">
-        //            <span class="message-data-time float-right">${timestamp}</span>
-        //            ${profileImg !== null ? `
-        //                <img src="/profileimg/${profileImg}" alt="avatar">
-        //            ` : `
-        //                <span class="initials">${profileImg}</span>
-        //            `}
-        //        </div>
-        //        <div class="message other-message float-right">${message}</div>
-        //    </li>`;
-        //$("#chatUL").append(chatMessage);
-        loadChatMessages($("#hiddenId").val());
-    }
-    function formatMessageTime(createdOn) {
-    const messageDate = new Date(createdOn);
-    const today = new Date();
+        //Javascript
+        function loadChatMessages(Id, profileImg, avatar, username) {
+            var htmlToAdd;
+            if (profileImg == "") {
+                htmlToAdd = '<span class="initials" > ' + avatar + '</span>';
+            } else {
+                htmlToAdd = '<img id="userImage" src="profileimg/' + profileImg + '">';
+            }
+            $("#hiddenId").val(Id);
+            $("#hiddenProfileImg").val(profileImg);
+            $("#hiddenAvatar").val(avatar);
+            $("#imgUserTag").html(htmlToAdd);
+            $("#ChatWithUser").text(username);
+            $.ajax({
+                url: '../Chat/getMessages/' + Id, // Replace with your server endpoint to fetch chat messages
+                method: 'GET',
+                dataType: 'json',
+                success: function (response) {
+                    $('#chatBox').empty();
 
-    // Check if the message date is today
-    if (
-        messageDate.getDate() === today.getDate() &&
-        messageDate.getMonth() === today.getMonth() &&
-        messageDate.getFullYear() === today.getFullYear()
-    ) {
-        // Format as "Today, HH:mm AM/PM"
-        return `Today, ${new Intl.DateTimeFormat('en-US', {
-            hour: 'numeric',
-            minute: 'numeric',
-            hour12: true
-        }).format(messageDate)}`;
-    }
+                    // Clear existing chat messages
+                    var currentUser = '@ViewBag.currentUser';
+                    response.forEach(function (message) {
+                        const createdOn = message.createdOn; // Replace this with your actual createdOn value
+                        const formattedTime = formatMessageTime(createdOn);
+                        var chatMessage = `<div class="msg receiverMsg d-flex ${message.email === currentUser ? 'justify-content-start' : 'justify-content-end'}">
+                                                      <p class="text-${message.email === currentUser ? 'start' : 'end'}">${message.message}<br /><span>${formattedTime}</span></p>
+                                          </div>`;
 
-    // Check if the message date is yesterday
-    const yesterday = new Date(today);
-    yesterday.setDate(today.getDate() - 1);
-    if (
-        messageDate.getDate() === yesterday.getDate() &&
-        messageDate.getMonth() === yesterday.getMonth() &&
-        messageDate.getFullYear() === yesterday.getFullYear()
-    ) {
-        // Format as "Yesterday, HH:mm AM/PM"
-        return `Yesterday, ${new Intl.DateTimeFormat('en-US', {
-            hour: 'numeric',
-            minute: 'numeric',
-            hour12: true
-        }).format(messageDate)}`;
-    }
+                        $('#chatBox').append(chatMessage);
+                    });
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error loading chat messages:', error);
+                }
+            });
+        }
+        function appendMessage(sender, message, timestamp) {
+            //var profileImg = $("#hiddenProfileImg").val() == null ? $("#hiddenAvatar").val() : $("#hiddenProfileImg").val();
+            //var chatMessage =
+            //    `<li class="clearfix">
+            //        <div class="message-data text-right">
+            //            <span class="message-data-time float-right">${timestamp}</span>
+            //            ${profileImg !== null ? `
+            //                <img src="/profileimg/${profileImg}" alt="avatar">
+            //            ` : `
+            //                <span class="initials">${profileImg}</span>
+            //            `}
+            //        </div>
+            //        <div class="message other-message float-right">${message}</div>
+            //    </li>`;
+            //$("#chatUL").append(chatMessage);
+            loadChatMessages($("#hiddenId").val());
+        }
+        function formatMessageTime(createdOn) {
+            const messageDate = new Date(createdOn);
+            const today = new Date();
 
-    // Format as "MMM dd, yyyy, HH:mm AM/PM"
-    return new Intl.DateTimeFormat('en-US', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-        hour: 'numeric',
-        minute: 'numeric',
-        hour12: true
-    }).format(messageDate);
-}
-</script>
+            // Check if the message date is today
+            if (
+                messageDate.getDate() === today.getDate() &&
+                messageDate.getMonth() === today.getMonth() &&
+                messageDate.getFullYear() === today.getFullYear()
+            ) {
+                // Format as "Today, HH:mm AM/PM"
+                return `Today, ${new Intl.DateTimeFormat('en-US', {
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    hour12: true
+                }).format(messageDate)}`;
+            }
+
+            // Check if the message date is yesterday
+            const yesterday = new Date(today);
+            yesterday.setDate(today.getDate() - 1);
+            if (
+                messageDate.getDate() === yesterday.getDate() &&
+                messageDate.getMonth() === yesterday.getMonth() &&
+                messageDate.getFullYear() === yesterday.getFullYear()
+            ) {
+                // Format as "Yesterday, HH:mm AM/PM"
+                return `Yesterday, ${new Intl.DateTimeFormat('en-US', {
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    hour12: true
+                }).format(messageDate)}`;
+            }
+
+            // Format as "MMM dd, yyyy, HH:mm AM/PM"
+            return new Intl.DateTimeFormat('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+                hour12: true
+            }).format(messageDate);
+        }
+    </script>
 }

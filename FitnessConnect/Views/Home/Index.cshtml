@@ -41,7 +41,7 @@
                         <option value="strongman">Strongman</option>
                     </select>
                 </div>
-                <button type="submit" onclick="fetchExercises" class="btn btn-secondary">Fetch Exercises</button>
+                <button id="fetchExercisesBtn" class="btn btn-secondary">Fetch Exercises</button>
             </div>
 
             <!-- Upcoming Workout Program -->
@@ -49,7 +49,7 @@
                 <div class="card-header">
                     Upcoming Workout Program
                 </div>
-                <div class="card-body" style=" height: 150px">
+                <div class="card-body" style="height: 150px; overflow-y: auto;">
                     <!-- Add content for upcoming workout program -->
                 </div>
             </div>
@@ -67,47 +67,19 @@
             </div>
         </div>
     </div>
-    <!-- Features Section -->
-    <section class="features-section mt-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="feature-box text-center">
-                        <i class="bi bi-person"></i>
-                        <h3>User Profiles</h3>
-                        <p>Create your personalized fitness profile and share your achievements with the community.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="feature-box text-center">
-                        <i class="bi bi-heart"></i>
-                        <h3>Track Progress</h3>
-                        <p>Track your fitness journey with our easy-to-use progress tracking tools.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="feature-box text-center">
-                        <i class="bi bi-chat"></i>
-                        <h3>Community Chat</h3>
-                        <p>Connect with other fitness enthusiasts, share tips, and motivate each other.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
 </div>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script>
     $(document).ready(function () {
         const apiUrl = 'https://api.api-ninjas.com/v1/exercises?muscle=biceps';
         const exercisesList = $('#currentWorkoutChart');
-        function fetchExercises(selectedCategory) {
-            var muscle = selectedCategory;
+        $("#fetchExercisesBtn").click(function() {
+            var muscle = $('#muscleCategory').val();
+            var exercisetype = $("#exerciseType").val()
             exercisesList.empty();
             $.ajax({
                 method: 'GET',
-                url: 'https://api.api-ninjas.com/v1/exercises?muscle=' + muscle,
+                url: 'https://api.api-ninjas.com/v1/exercises?muscle='+ muscle+'&type' +exercisetype,
                 headers: { 'X-Api-Key': 'NvWEzJtCpB1Onls444EfBQ==osiCSRAraiymbgpa' },
                 contentType: 'application/json',
                 success: function (result) {
@@ -131,11 +103,11 @@
                     console.error('Error: ', jqXHR.responseText);
                 }
             });
-        }
-        $('#muscleCategory').change(function () {
-            const selectedCategory = $(this).val();
-            // Perform actions based on the selected category, e.g., fetch exercises
-            fetchExercises(selectedCategory);
         });
+        //$('#muscleCategory').change(function () {
+        //    const selectedCategory = $(this).val();
+        //    // Perform actions based on the selected category, e.g., fetch exercises
+        //    fetchExercises(selectedCategory);
+        //});
     });
 </script>

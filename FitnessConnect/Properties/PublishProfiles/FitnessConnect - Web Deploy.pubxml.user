@@ -6,12 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project>
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA7sfkfEDboEW6oH/hDOn0lAAAAAACAAAAAAAQZgAAAAEAACAAAAAP8yOz7YbHQ7dezbpMu+vnZny7CQ1LOEoQk0mn8WnD5QAAAAAOgAAAAAIAACAAAACJfKrmezci+3ruKMOPvp5n+YDlE7pnr4ZeS4ts7HD69oAAAADktcVf+Rp8Gzde/CGL/w8Yq7jg9ASOzxE7o5iF+7szw3Pr91VA7YNeTWuqGItI+3XboudKxWgeyNyr5H20bjg4sOngRIyuoBLS5Viw7C8GPe6NTS9635irv4RtrkUsPGcu4a4y+6u/Zk4WAr0ItUeVpFXj8jAavifL9sJiWlqijkAAAAAKr5cnszT+t267pCAlSJadeXmDKVxpWw85h+WDTiEXr8VvQCuLray+EAm/ap3t2pVbzxJhb+P3InSk9sqEPQIL</EncryptedPassword>
-    <History>False|2023-11-28T11:18:23.8561348Z;False|2023-11-28T16:43:34.4332528+05:30;False|2023-11-28T16:35:09.8959492+05:30;False|2023-11-28T16:33:13.6380420+05:30;False|2023-11-28T16:27:46.6987615+05:30;False|2023-11-28T16:23:19.3746750+05:30;False|2023-11-28T16:20:43.1964048+05:30;False|2023-11-28T16:19:40.5572867+05:30;True|2023-11-27T12:47:28.9369373+05:30;</History>
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA7sfkfEDboEW6oH/hDOn0lAAAAAACAAAAAAAQZgAAAAEAACAAAADAuqq6/WH5reD4BA1EPfE6jWthN/DaWHCx/ukb4D/JVAAAAAAOgAAAAAIAACAAAAA4f4aPGsGz5kzcu3Zyeulh4fq8L+mT7rUd6U7bItvmcYAAAACb8rMTkMDgkenYQbSThQgPqDZKd57Hzm+sehyFX+3dyGkSw7IU0vtkroxphk4ARmIw8iSZE9cx7Pl/MG0ehf9pymDnp3ScJrRUrJHfA5IsAZBYTU+5BVvnASvqbSCB6Aq0M4kj+6Ad68cQtyo3LmhqdJ0ZghhRJalp+DutWw8vUEAAAABQblZL2GUE/GBiOr2FfWt7RLWXUpwQUa0SeZNUnrM11lB/IihUyLfOF8fqmfaUJ/YjHjdPy7tAwx4nMOxQNGwF</EncryptedPassword>
+    <History>True|2023-11-30T12:27:13.2921341Z;</History>
   </PropertyGroup>
-  <ItemGroup>
-    <DestinationConnectionStrings Include="ApplicationDbContextConnection">
-      <Value>Data Source=tcp:fitnessconnect.database.windows.net,1433%3bInitial Catalog=FitnessConnect%3bUser Id=tpatel50%40stevens.edu%40fitnessconnect%3bPassword=Pradip%40123456%40</Value>
-    </DestinationConnectionStrings>
-  </ItemGroup>
 </Project>

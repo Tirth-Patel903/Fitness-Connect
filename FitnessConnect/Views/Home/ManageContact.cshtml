@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "Manage ContactList";
+    var userList = ViewBag.ContactsList;
+}
+<style>
+    .error {
+        color: red;
+    }
+
+    #main_card {
+        display: grid;
+    }
+</style>
+<div class="app-main__inner">
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div>
+                    <h4 class="text-center mb-3" style="font-weight: 600;">Manage Contacts List</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-card mb-3 card" id="main_card">
+        <div class="card-header">
+            Contacts List
+        </div>
+        <div class="table-responsive">
+            <table id="userTable" class="align-middle mb-0 table table-borderless table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            Full Name
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            Subject
+                        </th>
+                        <th>
+                            Message
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="SetUserList">
+                    @foreach (var item in ViewBag.ContactsList)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.Email</td>
+                            <td>@item.Subject</td>
+                            <td>@item.Message</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#userTable').DataTable({
+                "pagingType": "full_numbers",
+                'aoColumnDefs': [{'bSortable': false,'aTargets': ['nosort'] }]
+            });
+        $("#loadingStatus").html('');
+
+    });
+</script>

@@ -53,7 +53,20 @@ namespace FitnessConnect.Controllers
                 _commonrepo.AddLogger("Home", "ContactUs", ex.Message);
                 return null;
             }
-
+        }
+        public IActionResult ManageContact()
+        {
+            try
+            {
+                var contactList = _commonrepo.GetContacts();
+                ViewBag.ContactsList = contactList;
+                return View();
+            }
+            catch (Exception ex)
+            {
+                _commonrepo.AddLogger("Home", "ContactUs", ex.Message);
+                throw;
+            }
         }
         public IActionResult AboutUs()
         {

@@ -1,9 +1,14 @@
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\FitnessConnect.exe
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\appsettings.json
+C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\libman.json
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\FitnessConnect.dll
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\FitnessConnect.runtimeconfig.json
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\FitnessConnect.pdb
+C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\Azure.Core.dll
+C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\Azure.Extensions.AspNetCore.Configuration.Secrets.dll
+C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\Azure.Identity.dll
+C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\Azure.Security.KeyVault.Secrets.dll
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\Humanizer.dll
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\MessagePack.dll
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\MessagePack.Annotations.dll
@@ -41,6 +46,7 @@ C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Rele
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.Identity.Core.dll
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\Microsoft.Identity.Client.dll
+C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\Microsoft.Identity.Client.Extensions.Msal.dll
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\Microsoft.IdentityModel.Logging.dll
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\Microsoft.IdentityModel.Protocols.dll
@@ -76,6 +82,7 @@ C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Rele
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\System.Diagnostics.DiagnosticSource.dll
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\System.Drawing.Common.dll
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\System.Memory.Data.dll
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\System.Reflection.MetadataLoadContext.dll
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\System.Runtime.Caching.dll
 C:\Users\parag\OneDrive\Documents\GitHub\Fitness-Connect\FitnessConnect\obj\Release\net6.0\PubTmp\Out\System.Security.Cryptography.ProtectedData.dll
