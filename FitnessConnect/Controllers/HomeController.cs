@@ -1,6 +1,7 @@
 ﻿using FitnessConnect.Areas.Identity.Data;
 using FitnessConnect.Interfaces;
 using FitnessConnect.Models;
+using FitnessConnect.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -54,6 +55,7 @@ namespace FitnessConnect.Controllers
                 return null;
             }
         }
+        [PermissionAuthorize(Roles = "Admin", Permissions = "ManageContactCreate")]
         public IActionResult ManageContact()
         {
             try

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "On14xRlo5rqzllacE0M+JeJk5bGlHTR22aVUBnVoGPI=",
+  "Hash": "ZaoY8HgK31envWwr7X2rf7B6Ne7Ac/w39zu9oRdlw6E=",
   "Source": "FitnessConnect",
   "BasePath": "_content/FitnessConnect",
   "Mode": "Default",
@@ -1258,6 +1258,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\css\\themes\\default.css.bak"
     },
     {
+      "Identity": "C:\\Users\\parag\\OneDrive\\Documents\\GitHub\\Fitness-Connect\\FitnessConnect\\wwwroot\\assets\\img\\about-pic.jpg",
+      "SourceId": "FitnessConnect",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\parag\\OneDrive\\Documents\\GitHub\\Fitness-Connect\\FitnessConnect\\wwwroot\\",
+      "BasePath": "_content/FitnessConnect",
+      "RelativePath": "assets/img/about-pic.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\about-pic.jpg"
+    },
+    {
       "Identity": "C:\\Users\\parag\\OneDrive\\Documents\\GitHub\\Fitness-Connect\\FitnessConnect\\wwwroot\\assets\\img\\ajax-loading.gif",
       "SourceId": "FitnessConnect",
       "SourceType": "Discovered",
@@ -1851,6 +1868,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\pie-img1.png"
+    },
+    {
+      "Identity": "C:\\Users\\parag\\OneDrive\\Documents\\GitHub\\Fitness-Connect\\FitnessConnect\\wwwroot\\assets\\img\\play.png",
+      "SourceId": "FitnessConnect",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\parag\\OneDrive\\Documents\\GitHub\\Fitness-Connect\\FitnessConnect\\wwwroot\\",
+      "BasePath": "_content/FitnessConnect",
+      "RelativePath": "assets/img/play.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\play.png"
     },
     {
       "Identity": "C:\\Users\\parag\\OneDrive\\Documents\\GitHub\\Fitness-Connect\\FitnessConnect\\wwwroot\\assets\\img\\portlet-collapse-icon.png",
@@ -3432,6 +3466,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\signalr.js\\jquery.signalR.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\parag\\OneDrive\\Documents\\GitHub\\Fitness-Connect\\FitnessConnect\\wwwroot\\ProfileImg\\Profile_myimg.png",
+      "SourceId": "FitnessConnect",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\parag\\OneDrive\\Documents\\GitHub\\Fitness-Connect\\FitnessConnect\\wwwroot\\",
+      "BasePath": "_content/FitnessConnect",
+      "RelativePath": "ProfileImg/Profile_myimg.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProfileImg\\Profile_myimg.png"
     },
     {
       "Identity": "C:\\Users\\parag\\OneDrive\\Documents\\GitHub\\Fitness-Connect\\FitnessConnect\\wwwroot\\ProfileImg\\Profile_Screenshot 2022-12-19 194522.png",

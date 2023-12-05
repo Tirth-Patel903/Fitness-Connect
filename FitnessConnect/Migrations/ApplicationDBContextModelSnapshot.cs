@@ -35,8 +35,8 @@ namespace FitnessConnect.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("CreatedById")
-                        .HasColumnType("int");
+                    b.Property<string>("CreatedById")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -66,8 +66,8 @@ namespace FitnessConnect.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<int?>("ModifiedById")
-                        .HasColumnType("int");
+                    b.Property<string>("ModifiedById")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("ModifiedOn")
                         .HasColumnType("datetime2");
